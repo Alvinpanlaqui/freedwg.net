@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Primary SEO Meta Tags for Google Indexing -->
-    <title>FREEDWG - Free Professional CAD Drawings, Blocks & Blueprints</title>
+    <title id="meta-title">FREEDWG - Free Professional CAD Drawings, Blocks & Blueprints</title>
     
     <!-- Static Favicon -->
     <link rel="icon" type="image/png" href="https://6ad07ae6a148e83390719c25.imgix.net/sandbox/LOGO%20PNG.png">
     
-    <meta name="description" content="Download high-quality 2D & 3D DWG drawings, architectural CAD blocks, interior details, and engineering schematics for free.">
-    <link rel="canonical" href="https://freedwg.net/">
+    <meta id="meta-desc" name="description" content="Download high-quality 2D & 3D DWG drawings, architectural CAD blocks, interior details, and engineering schematics for free.">
+    <link id="meta-canonical" rel="canonical" href="https://freedwg.net/">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     
     <!-- Open Graph / Social Sharing Meta Tags -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://freedwg.net/">
-    <meta property="og:title" content="FREEDWG - Free Professional CAD Drawings, Blocks & Blueprints">
-    <meta property="og:description" content="Download high-quality 2D & 3D DWG drawings, architectural CAD blocks, and engineering schematics for free.">
+    <meta id="meta-og-url" property="og:url" content="https://freedwg.net/">
+    <meta id="meta-og-title" property="og:title" content="FREEDWG - Free Professional CAD Drawings, Blocks & Blueprints">
+    <meta id="meta-og-desc" property="og:description" content="Download high-quality 2D & 3D DWG drawings, architectural CAD blocks, and engineering schematics for free.">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -49,8 +49,8 @@
     <style>
         body, body * { font-family: 'Inter', system-ui, -apple-system, sans-serif !important; }
         h1, h2, h3, h4, h5, h6, p, span, div, a, button { letter-spacing: normal !important; word-spacing: normal !important; }
-        #dwg-grid h3 { line-height: 1.45 !important; margin-bottom: 0.5rem !important; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; word-wrap: break-word; word-break: normal !important; }
-        #dwg-grid p.item-desc { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        #dwg-grid h3, #related-grid h3 { line-height: 1.45 !important; margin-bottom: 0.5rem !important; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; word-wrap: break-word; word-break: normal !important; }
+        #dwg-grid p.item-desc, #related-grid p.item-desc { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
         #dwg-grid span, #category-filters button { line-height: 1.35 !important; letter-spacing: 0.02em !important; }
         .px-2, .px-2\.5, .px-3, .px-4, .py-0\.5, .py-1, .py-2, .py-3, .py-3\.5 { box-sizing: border-box !important; }
         ::-webkit-scrollbar { width: 8px; }
@@ -85,8 +85,8 @@
                     <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                     <span id="total-count-badge">0 CAD Blocks Available</span>
                 </div>
-                <a href="#catalog" class="text-sm font-medium text-slate-300 hover:text-accent-blue transition-colors">Library</a>
-                <a href="#blog" class="text-sm font-medium text-slate-300 hover:text-accent-blue transition-colors">CAD Blog</a>
+                <a href="#catalog" onclick="showCatalogView()" class="text-sm font-medium text-slate-300 hover:text-accent-blue transition-colors">Library</a>
+                <a href="#blog" onclick="showCatalogView();" class="text-sm font-medium text-slate-300 hover:text-accent-blue transition-colors">CAD Blog</a>
                 
                 <a href="#about" onclick="openPageModal('about'); return false;" class="text-sm font-medium text-slate-300 hover:text-accent-blue transition-colors">About Us</a>
                 <a href="#contact" onclick="openPageModal('contact'); return false;" class="text-sm font-medium text-slate-300 hover:text-accent-blue transition-colors">Contact Us</a>
@@ -100,95 +100,173 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="relative pt-10 pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden border-b border-slate-900 bg-gradient-to-b from-slate-900/50 to-slate-950">
-        <div class="max-w-4xl mx-auto text-center relative z-10">
-            <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
-                Free AutoCAD Blocks, Drawings & Blueprints
-            </h1>
-            <p class="text-base sm:text-lg text-slate-400 mb-6 max-w-2xl mx-auto">
-                Download high-quality 2D & 3D DWG drawings, architectural CAD blocks, interior details, and engineering schematics for free.
-            </p>
+    <!-- ================= CATALOG VIEW (Default) ================= -->
+    <div id="catalog-view">
+        <!-- Hero Section -->
+        <section class="relative pt-10 pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden border-b border-slate-900 bg-gradient-to-b from-slate-900/50 to-slate-950">
+            <div class="max-w-4xl mx-auto text-center relative z-10">
+                <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
+                    Free AutoCAD Blocks, Drawings & Blueprints
+                </h1>
+                <p class="text-base sm:text-lg text-slate-400 mb-6 max-w-2xl mx-auto">
+                    Download high-quality 2D & 3D DWG drawings, architectural CAD blocks, interior details, and engineering schematics for free.
+                </p>
 
-            <div class="relative max-w-2xl mx-auto">
-                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-500">
-                    <i class="fa-solid fa-magnifying-glass text-lg"></i>
+                <div class="relative max-w-2xl mx-auto">
+                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-500">
+                        <i class="fa-solid fa-magnifying-glass text-lg"></i>
+                    </div>
+                    <input 
+                        type="text" 
+                        id="search-input" 
+                        placeholder="Search by title, tag, or category (e.g., Door, Villa, HVAC)..." 
+                        class="w-full pl-12 pr-4 py-4 bg-slate-900 border border-slate-700/80 rounded-2xl text-slate-100 placeholder-slate-500 focus:outline-none focus:border-accent-blue focus:ring-2 focus:ring-accent-blue/20 transition-all text-sm sm:text-base"
+                    >
+                    <div class="absolute inset-y-0 right-2 flex items-center">
+                        <button id="clear-search" class="hidden px-3 py-1.5 text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl transition-colors">
+                            Clear
+                        </button>
+                    </div>
                 </div>
-                <input 
-                    type="text" 
-                    id="search-input" 
-                    placeholder="Search by title, tag, or category (e.g., Door, Villa, HVAC)..." 
-                    class="w-full pl-12 pr-4 py-4 bg-slate-900 border border-slate-700/80 rounded-2xl text-slate-100 placeholder-slate-500 focus:outline-none focus:border-accent-blue focus:ring-2 focus:ring-accent-blue/20 transition-all text-sm sm:text-base"
-                >
-                <div class="absolute inset-y-0 right-2 flex items-center">
-                    <button id="clear-search" class="hidden px-3 py-1.5 text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl transition-colors">
-                        Clear
+                
+                <!-- Mobile Request Button -->
+                <div class="mt-6 md:hidden max-w-2xl mx-auto">
+                    <button onclick="openRequestModal()" class="w-full text-sm font-bold text-accent-blue bg-accent-blue/10 px-4 py-3 rounded-xl border border-accent-blue/30 hover:bg-accent-blue hover:text-white transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-lightbulb"></i> Request CAD File
                     </button>
                 </div>
             </div>
+        </section>
+
+        <!-- Main Content Catalog -->
+        <main id="catalog" class="flex-grow max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
             
-            <!-- Mobile Request Button -->
-            <div class="mt-6 md:hidden max-w-2xl mx-auto">
-                <button onclick="openRequestModal()" class="w-full text-sm font-bold text-accent-blue bg-accent-blue/10 px-4 py-3 rounded-xl border border-accent-blue/30 hover:bg-accent-blue hover:text-white transition-all flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-lightbulb"></i> Request CAD File
+            <!-- SEO-Optimized Catalog Header & Grid Title Area -->
+            <div class="mb-8 pb-6 border-b border-slate-900">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                    <div>
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-xs uppercase font-bold tracking-wider text-accent-blue bg-accent-blue/10 px-3 py-1 rounded-full border border-accent-blue/20">Open CAD Repository</span>
+                            <span class="text-xs text-slate-500">• Verified DWG & DXF Files</span>
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                            Professional Architectural & Engineering CAD Library
+                        </h2>
+                        <p class="text-sm text-slate-400 mt-1 max-w-2xl">
+                            Browse, filter, and download precision 2D and 3D AutoCAD drawings, structural details, and technical blueprints for your engineering projects.
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 bg-slate-900 border border-slate-800 px-4 py-2.5 rounded-xl shadow-lg shrink-0">
+                        <div class="w-2.5 h-2.5 rounded-full bg-accent-blue animate-pulse"></div>
+                        <span class="text-xs text-slate-300 font-medium">
+                            Showing <span id="item-count" class="font-bold text-white">0</span> CAD items (<span class="text-slate-400">32 per page</span>)
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Category Filters Toolbar -->
+                <div class="mt-6 pt-6 border-t border-slate-900/60 flex items-center justify-between flex-wrap gap-4">
+                    <div id="category-filters" class="flex items-center flex-wrap gap-2">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4-Column Grid Layout -->
+            <div>
+                <div id="dwg-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                </div>
+
+                <div id="pagination-container" class="mt-10 flex items-center justify-center gap-2 flex-wrap">
+                </div>
+            </div>
+
+            <div id="empty-state" class="hidden text-center py-24">
+                <div class="w-16 h-16 bg-slate-900 border border-slate-800 rounded-2xl flex items-center justify-center mx-auto mb-4 text-slate-500 text-2xl">
+                    <i class="fa-solid fa-folder-open"></i>
+                </div>
+                <h3 class="text-lg font-semibold text-slate-300 mb-1">No CAD items found</h3>
+                <p class="text-sm text-slate-500 mb-6">Try adjusting your search query or category filter.</p>
+                <button onclick="resetFilters()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-sm font-medium rounded-xl transition-colors">
+                    Reset Filters
                 </button>
             </div>
-        </div>
-    </section>
+        </main>
+    </div>
 
-    <!-- Main Content Catalog -->
-    <main id="catalog" class="flex-grow max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
-        
-        <!-- SEO-Optimized Catalog Header & Grid Title Area -->
-        <div class="mb-8 pb-6 border-b border-slate-900">
-            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
-                <div>
-                    <div class="flex items-center gap-2 mb-2">
-                        <span class="text-xs uppercase font-bold tracking-wider text-accent-blue bg-accent-blue/10 px-3 py-1 rounded-full border border-accent-blue/20">Open CAD Repository</span>
-                        <span class="text-xs text-slate-500">• Verified DWG & DXF Files</span>
+    <!-- ================= INDIVIDUAL SUBPAGE VIEW ================= -->
+    <div id="subpage-view" class="hidden flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
+        <!-- Breadcrumb Navigation -->
+        <nav class="flex items-center gap-2 text-xs text-slate-400 mb-6">
+            <a href="https://freedwg.net" onclick="showCatalogView(); return false;" class="hover:text-accent-blue transition-colors">Home</a>
+            <i class="fa-solid fa-chevron-right text-[10px] text-slate-600"></i>
+            <a href="#catalog" onclick="showCatalogView();" id="subpage-breadcrumb-cat" class="hover:text-accent-blue transition-colors">Category</a>
+            <i class="fa-solid fa-chevron-right text-[10px] text-slate-600"></i>
+            <span class="text-slate-200 truncate max-w-xs" id="subpage-breadcrumb-title">CAD Block</span>
+        </nav>
+
+        <!-- Main Product Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
+            <!-- Left: Image Preview Box -->
+            <div class="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-3xl p-4 sm:p-6 shadow-2xl relative overflow-hidden">
+                <div class="relative bg-slate-950 rounded-2xl overflow-hidden border border-slate-800 flex items-center justify-center min-h-[320px] sm:min-h-[420px] cursor-pointer group" onclick="openImageModalFromSubpage()">
+                    <img id="subpage-img" src="" alt="CAD Technical Drawing Preview" class="max-h-[500px] w-full object-contain group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <span class="px-4 py-2 rounded-xl bg-slate-900/90 text-white text-xs font-semibold border border-slate-700 flex items-center gap-2 shadow-2xl"><i class="fa-solid fa-eye text-accent-blue"></i> Click to Zoom Full Image</span>
                     </div>
-                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-                        Professional Architectural & Engineering CAD Library
-                    </h2>
-                    <p class="text-sm text-slate-400 mt-1 max-w-2xl">
-                        Browse, filter, and download precision 2D and 3D AutoCAD drawings, structural details, and technical blueprints for your engineering projects.
-                    </p>
+                    <span id="subpage-badge-cat" class="absolute top-4 left-4 px-3 py-1 rounded-lg bg-slate-950/85 backdrop-blur-md border border-slate-800 text-xs uppercase font-bold tracking-wider text-accent-blue">Category</span>
                 </div>
-                <div class="flex items-center gap-3 bg-slate-900 border border-slate-800 px-4 py-2.5 rounded-xl shadow-lg shrink-0">
-                    <div class="w-2.5 h-2.5 rounded-full bg-accent-blue animate-pulse"></div>
-                    <span class="text-xs text-slate-300 font-medium">
-                        Showing <span id="item-count" class="font-bold text-white">0</span> CAD items (<span class="text-slate-400">32 per page</span>)
-                    </span>
+                <div class="mt-4 flex items-center justify-between text-xs text-slate-400 px-2">
+                    <span><i class="fa-solid fa-shield-halved text-emerald-400"></i> Verified DWG / DXF Format</span>
+                    <span><i class="fa-solid fa-download text-accent-amber"></i> <span id="subpage-downloads">0</span> Downloads</span>
                 </div>
             </div>
 
-            <!-- Category Filters Toolbar -->
-            <div class="mt-6 pt-6 border-t border-slate-900/60 flex items-center justify-between flex-wrap gap-4">
-                <div id="category-filters" class="flex items-center flex-wrap gap-2">
+            <!-- Right: Details & Download Actions -->
+            <div class="lg:col-span-5 bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl flex flex-col justify-between">
+                <div>
+                    <h1 id="subpage-title" class="text-xl sm:text-2xl font-extrabold text-white mb-4 leading-snug">CAD Block Title</h1>
+                    <p id="subpage-desc" class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">Detailed description will appear here...</p>
+
+                    <!-- Technical Specs Box -->
+                    <div class="bg-slate-950 rounded-2xl p-4 border border-slate-800/80 mb-6 space-y-2.5 text-xs text-slate-300">
+                        <div class="text-[10px] uppercase font-bold text-accent-blue tracking-wider mb-2 pb-1.5 border-b border-slate-800">CAD Specifications</div>
+                        <div class="flex justify-between"><span class="text-slate-500">File Format:</span><span class="font-semibold text-white">AutoCAD DWG (.dwg)</span></div>
+                        <div class="flex justify-between"><span class="text-slate-500">File Size:</span><span id="subpage-filesize" class="font-semibold text-white">--</span></div>
+                        <div class="flex justify-between"><span class="text-slate-500">Compatibility:</span><span class="font-semibold text-white">AutoCAD 2004 & Newer</span></div>
+                        <div class="flex justify-between"><span class="text-slate-500">Units / Scale:</span><span class="font-semibold text-emerald-400">Metric (1:100 Verified)</span></div>
+                    </div>
+
+                    <!-- Tags -->
+                    <div id="subpage-tags" class="flex flex-wrap gap-1.5 mb-8">
+                        <!-- Tags rendered dynamically -->
+                    </div>
+                </div>
+
+                <!-- Download Action Button -->
+                <div class="space-y-3 pt-6 border-t border-slate-800">
+                    <button type="button" id="subpage-download-btn" class="w-full py-4 bg-gradient-to-r from-accent-blue to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold rounded-2xl shadow-xl flex items-center justify-center gap-2 transition-all text-sm">
+                        <i class="fa-solid fa-cloud-arrow-down text-lg"></i> Download DWG File Free
+                    </button>
+                    <button onclick="showCatalogView()" class="w-full py-3 bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium rounded-xl transition-colors text-xs">
+                        ← Back to CAD Library
+                    </button>
                 </div>
             </div>
         </div>
 
-        <!-- 4-Column Grid Layout -->
-        <div>
-            <div id="dwg-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!-- Related CAD Blocks Section -->
+        <div class="mt-16 pt-10 border-t border-slate-900">
+            <div class="flex items-center justify-between mb-6">
+                <div>
+                    <h2 class="text-xl font-extrabold text-white">Related CAD Blocks</h2>
+                    <p class="text-xs text-slate-400 mt-0.5">Explore similar architectural and engineering drawings from this category.</p>
+                </div>
             </div>
-
-            <div id="pagination-container" class="mt-10 flex items-center justify-center gap-2 flex-wrap">
+            <div id="related-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Populated dynamically -->
             </div>
         </div>
-
-        <div id="empty-state" class="hidden text-center py-24">
-            <div class="w-16 h-16 bg-slate-900 border border-slate-800 rounded-2xl flex items-center justify-center mx-auto mb-4 text-slate-500 text-2xl">
-                <i class="fa-solid fa-folder-open"></i>
-            </div>
-            <h3 class="text-lg font-semibold text-slate-300 mb-1">No CAD items found</h3>
-            <p class="text-sm text-slate-500 mb-6">Try adjusting your search query or category filter.</p>
-            <button onclick="resetFilters()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-sm font-medium rounded-xl transition-colors">
-                Reset Filters
-            </button>
-        </div>
-    </main>
+    </div>
 
     <!-- AutoCAD Shortcut Keys & Reference Guide -->
     <section class="border-t border-slate-900 bg-slate-900/40 py-16 px-4 sm:px-6 lg:px-8">
@@ -642,6 +720,9 @@
         const downloadModal = document.getElementById("download-modal");
         const modalContainer = document.getElementById("modal-container");
         
+        const catalogView = document.getElementById("catalog-view");
+        const subpageView = document.getElementById("subpage-view");
+
         const pageModal = document.getElementById("page-modal");
         const pageModalContainer = document.getElementById("page-modal-container");
         const pageModalTitle = document.getElementById("page-modal-title");
@@ -674,6 +755,16 @@
 
         function handleHashRoute() {
             const hash = window.location.hash;
+            if (hash.startsWith('#block/')) {
+                const blockId = parseInt(hash.replace('#block/', ''));
+                if (!isNaN(blockId)) {
+                    renderSubpage(blockId);
+                    return;
+                }
+            }
+            
+            // Default Catalog view routing
+            showCatalogView(false);
             if (hash.startsWith('#category=')) {
                 const catName = decodeURIComponent(hash.replace('#category=', ''));
                 if (categories.includes(catName)) {
@@ -684,6 +775,103 @@
                 openPageModal(hash.substring(1), false);
             }
             renderCatalog();
+        }
+
+        function showCatalogView(updateHash = true) {
+            subpageView.classList.add("hidden");
+            catalogView.classList.remove("hidden");
+            if (updateHash) {
+                window.location.hash = '#catalog';
+            }
+            // Reset meta tags back to homepage defaults
+            document.getElementById("meta-title").textContent = "FREEDWG - Free Professional CAD Drawings, Blocks & Blueprints";
+            document.getElementById("meta-desc").setAttribute("content", "Download high-quality 2D & 3D DWG drawings, architectural CAD blocks, interior details, and engineering schematics for free.");
+            document.getElementById("meta-canonical").setAttribute("href", "https://freedwg.net/");
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderSubpage(id) {
+            const item = dwgDatabase.find(i => i.id === id);
+            if (!item) {
+                showCatalogView();
+                return;
+            }
+
+            catalogView.classList.add("hidden");
+            subpageView.classList.remove("hidden");
+
+            // Update Dynamic SEO Meta Tags for individual block indexing
+            const pageTitle = `${item.title} | Free AutoCAD DWG Download - FREEDWG`;
+            const pageDesc = item.description || `Download free ${item.category} AutoCAD DWG block: ${item.title}. Verified 2D/3D CAD drawings for architects and engineers.`;
+            const pageUrl = `https://freedwg.net/#block/${item.id}`;
+
+            document.getElementById("meta-title").textContent = pageTitle;
+            document.getElementById("meta-desc").setAttribute("content", pageDesc);
+            document.getElementById("meta-canonical").setAttribute("href", pageUrl);
+            document.getElementById("meta-og-title").setAttribute("content", pageTitle);
+            document.getElementById("meta-og-desc").setAttribute("content", pageDesc);
+            document.getElementById("meta-og-url").setAttribute("content", pageUrl);
+
+            // Populate Subpage UI Elements
+            document.getElementById("subpage-breadcrumb-cat").textContent = item.category;
+            document.getElementById("subpage-breadcrumb-cat").setAttribute("onclick", `setCategory('${item.category}'); return false;`);
+            document.getElementById("subpage-breadcrumb-title").textContent = item.title;
+
+            document.getElementById("subpage-title").textContent = item.title;
+            document.getElementById("subpage-desc").textContent = item.description || "High-quality professional AutoCAD DWG CAD block file provided for architectural, structural, and engineering design drafts.";
+            document.getElementById("subpage-filesize").textContent = item.fileSize;
+            document.getElementById("subpage-downloads").textContent = item.downloads.toLocaleString();
+            
+            const subImg = document.getElementById("subpage-img");
+            subImg.src = item.image;
+            subImg.alt = `${item.title} - Free AutoCAD DWG CAD Block Preview`;
+
+            document.getElementById("subpage-badge-cat").textContent = item.category;
+
+            // Tags
+            document.getElementById("subpage-tags").innerHTML = item.tags.map(tag => `<span class="text-xs px-2.5 py-1 bg-slate-950 border border-slate-800 text-slate-300 rounded-lg inline-block">#${tag}</span>`).join('');
+
+            // Download Button
+            const dlBtn = document.getElementById("subpage-download-btn");
+            dlBtn.onclick = function() {
+                activeDownloadLink = item.downloadLink;
+                activeItemTitle = item.title;
+                openDownloadModal(item.id);
+            };
+
+            // Render Related Blocks in the same category
+            const relatedGrid = document.getElementById("related-grid");
+            const relatedItems = dwgDatabase.filter(i => i.category === item.category && i.id !== item.id).slice(0, 4);
+            
+            if (relatedItems.length === 0) {
+                relatedGrid.innerHTML = `<p class="text-xs text-slate-500 col-span-full">No other blocks found in this category.</p>`;
+            } else {
+                relatedGrid.innerHTML = relatedItems.map(rel => `
+                    <div class="bg-slate-900 border border-slate-800/80 rounded-2xl overflow-hidden group hover:border-slate-700 transition-all duration-300 flex flex-col shadow-xl cursor-pointer" onclick="window.location.hash='#block/${rel.id}'">
+                        <div class="relative h-40 overflow-hidden bg-slate-950 flex-shrink-0">
+                            <img src="${rel.image}" alt="${rel.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100">
+                            <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-slate-950/80 border border-slate-800 text-[9px] uppercase font-bold text-accent-blue">${rel.category}</span>
+                        </div>
+                        <div class="p-4 flex-grow flex flex-col justify-between">
+                            <h3 class="text-sm font-bold text-white mb-2 group-hover:text-accent-blue transition-colors line-clamp-2">${rel.title}</h3>
+                            <div class="flex items-center justify-between pt-2 border-t border-slate-800 text-[11px] text-slate-400">
+                                <span>${rel.fileSize}</span>
+                                <span class="text-accent-blue font-semibold">View Block →</span>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function openImageModalFromSubpage() {
+            const hash = window.location.hash;
+            if (hash.startsWith('#block/')) {
+                const id = parseInt(hash.replace('#block/', ''));
+                openImageModal(id);
+            }
         }
 
         function renderCategories() {
@@ -701,6 +889,7 @@
         window.setCategory = function(cat) {
             currentCategory = cat;
             currentPage = 1;
+            showCatalogView(false);
             window.location.hash = cat === 'All' ? '#catalog' : `#category=${encodeURIComponent(cat)}`;
             renderCategories();
             renderCatalog();
@@ -743,11 +932,11 @@
             paginatedItems.forEach((item) => {
                 gridHTML += `
                     <div class="bg-slate-900 border border-slate-800/80 rounded-2xl overflow-hidden group hover:border-slate-700 transition-all duration-300 flex flex-col shadow-xl">
-                        <div class="relative h-48 overflow-hidden bg-slate-950 flex-shrink-0 cursor-pointer" onclick="openImageModal(${item.id})">
+                        <div class="relative h-48 overflow-hidden bg-slate-950 flex-shrink-0 cursor-pointer" onclick="window.location.hash='#block/${item.id}'">
                             <img src="${item.image}" alt="${item.title.replace(/"/g, '&quot;')} - Free AutoCAD DWG CAD Block Preview" onerror="this.src='https://placehold.co/600x400/0f172a/ef4444?text=DWG+Preview'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100">
                             <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
                             <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                <span class="px-3 py-1.5 rounded-xl bg-slate-900/90 text-white text-xs font-medium border border-slate-700 flex items-center gap-1.5 shadow-lg"><i class="fa-solid fa-eye text-accent-blue"></i> Preview Image</span>
+                                <span class="px-3 py-1.5 rounded-xl bg-slate-900/90 text-white text-xs font-medium border border-slate-700 flex items-center gap-1.5 shadow-lg"><i class="fa-solid fa-arrow-up-right-from-square text-accent-blue"></i> View Subpage</span>
                             </div>
                             <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-slate-950/80 backdrop-blur-md border border-slate-800 text-[10px] uppercase font-bold tracking-wider text-accent-blue">${item.category}</span>
                             <div class="absolute bottom-3 left-3 text-[11px] font-medium text-slate-300 bg-slate-900/80 px-2.5 py-1 rounded-lg border border-slate-800 flex items-center gap-1">
@@ -756,14 +945,14 @@
                         </div>
                         <div class="p-5 flex-grow flex flex-col justify-between">
                             <div class="mb-4">
-                                <h3 class="text-base font-bold text-white mb-2 group-hover:text-accent-blue transition-colors">${item.title}</h3>
+                                <h3 class="text-base font-bold text-white mb-2 group-hover:text-accent-blue transition-colors cursor-pointer" onclick="window.location.hash='#block/${item.id}'">${item.title}</h3>
                                 <p class="item-desc text-xs text-slate-400 mb-3 leading-relaxed">${item.description || 'High-quality professional AutoCAD DWG CAD block file provided for architectural, structural, and engineering design drafts.'}</p>
                                 <div class="flex flex-wrap gap-1.5">
                                     ${item.tags.map(tag => `<span class="text-[10px] px-2 py-1 bg-slate-950 border border-slate-800 text-slate-400 rounded-md inline-block">#${tag}</span>`).join('')}
                                 </div>
                             </div>
                             <div class="grid grid-cols-2 gap-2 pt-4 border-t border-slate-800/60 mt-auto">
-                                <button onclick="openImageModal(${item.id})" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-1.5 border border-slate-700"><i class="fa-solid fa-eye text-slate-400"></i> Preview</button>
+                                <a href="#block/${item.id}" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-1.5 border border-slate-700"><i class="fa-solid fa-circle-info text-slate-400"></i> Details</a>
                                 <button onclick="openDownloadModal(${item.id})" class="px-3 py-2 bg-accent-blue/10 hover:bg-accent-blue border border-accent-blue/30 hover:border-accent-blue text-accent-blue hover:text-white text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-1.5"><i class="fa-solid fa-arrow-down-long"></i> Download</button>
                             </div>
                         </div>
@@ -806,7 +995,7 @@
             currentPage = 1;
             searchInput.value = "";
             clearSearchBtn.classList.add("hidden");
-            window.location.hash = '#catalog';
+            showCatalogView();
             renderCategories();
             renderCatalog();
         };
@@ -1027,7 +1216,7 @@
         };
 
         window.closePageModal = function() {
-            if (window.location.hash && !window.location.hash.startsWith('#category=')) {
+            if (window.location.hash && !window.location.hash.startsWith('#category=') && !window.location.hash.startsWith('#block/')) {
                 history.pushState("", document.title, window.location.pathname + window.location.search);
             }
             pageModalContainer.classList.remove("scale-100", "opacity-100");
