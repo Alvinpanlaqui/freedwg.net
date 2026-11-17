@@ -52,15 +52,43 @@
     <style>
         body, body * { font-family: 'Inter', system-ui, -apple-system, sans-serif !important; }
         h1, h2, h3, h4, h5, h6, p, span, div, a, button { letter-spacing: normal !important; word-spacing: normal !important; }
-        #dwg-grid h3, #related-grid h3 { line-height: 1.45 !important; margin-bottom: 0.5rem !important; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; word-wrap: break-word; word-break: normal !important; }
-        #dwg-grid p.item-desc, #related-grid p.item-desc { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-        #dwg-grid span, #category-filters button { line-height: 1.35 !important; letter-spacing: 0.02em !important; }
-        .px-2, .px-2\.5, .px-3, .px-4, .py-0\.5, .py-1, .py-2, .py-3, .py-3\.5 { box-sizing: border-box !important; }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0f172a; }
-        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #475569; }
         
+        /* Grid Text Clamping & Box Sizing Fixes */
+        #dwg-grid h3, #related-grid h3, #blog-grid h3 { 
+            line-height: 1.45 !important; 
+            margin-bottom: 0.5rem !important; 
+            display: -webkit-box; 
+            -webkit-line-clamp: 2; 
+            -webkit-box-orient: vertical; 
+            overflow: hidden; 
+            word-wrap: break-word; 
+            word-break: normal !important; 
+        }
+        #dwg-grid p.item-desc, #related-grid p.item-desc, #blog-grid p { 
+            display: -webkit-box; 
+            -webkit-line-clamp: 2; 
+            -webkit-box-orient: vertical; 
+            overflow: hidden; 
+        }
+
+        /* Aspect ratio and image containers for crisp rendering */
+        .cad-card-img-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 65%; /* Consistent 20:13 Aspect Ratio for cards */
+            background-color: #020617;
+            overflow: hidden;
+        }
+        .cad-card-img-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 0.75rem;
+        }
+
         .blog-prose h2 { font-size: 1.35rem; font-weight: 700; color: #ffffff; margin-top: 1.75rem; margin-bottom: 0.75rem; border-bottom: 1px solid #1e293b; padding-bottom: 0.5rem; }
         .blog-prose h3 { font-size: 1.15rem; font-weight: 600; color: #f8fafc; margin-top: 1.25rem; margin-bottom: 0.5rem; }
         .blog-prose p { margin-bottom: 1rem; line-height: 1.8; color: #cbd5e1; font-size: 0.95rem; }
@@ -69,6 +97,11 @@
         .blog-prose li { margin-bottom: 0.4rem; }
         .blog-prose code { background-color: #0f172a; color: #f59e0b; padding: 0.15rem 0.4rem; border-radius: 0.375rem; font-family: monospace; border: 1px solid #1e293b; font-size: 0.85rem; }
         .blog-prose blockquote { border-left: 4px solid #ef4444; padding-left: 1rem; margin: 1.25rem 0; font-style: italic; color: #94a3b8; background: #0f172a; padding: 1rem; border-radius: 0.5rem; }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
     </style>
     <meta name="google-adsense-account" content="ca-pub-6293373089653204">
 </head>
@@ -171,9 +204,10 @@
                 </div>
             </div>
 
+            <!-- Perfectly Aligned Responsive Grid Container -->
             <div>
-                <div id="dwg-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
-                <div id="pagination-container" class="mt-10 flex items-center justify-center gap-2 flex-wrap"></div>
+                <div id="dwg-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 items-stretch"></div>
+                <div id="pagination-container" class="mt-12 flex items-center justify-center gap-2 flex-wrap"></div>
             </div>
 
             <div id="empty-state" class="hidden text-center py-24">
@@ -253,9 +287,7 @@
             <h2 class="text-xl sm:text-2xl font-extrabold text-white mb-6 border-b border-slate-800 pb-4 flex items-center gap-3">
                 <i class="fa-solid fa-book-open-reader text-accent-blue"></i> Comprehensive Architectural & Technical Documentation
             </h2>
-            <div id="subpage-long-article" class="blog-prose space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
-                <!-- Dynamically populated unique 500+ word article per block -->
-            </div>
+            <div id="subpage-long-article" class="blog-prose space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed"></div>
         </div>
 
         <!-- Related CAD Blocks Section -->
@@ -266,13 +298,12 @@
                     <p class="text-xs text-slate-400 mt-0.5">Explore similar architectural and engineering drawings from this category.</p>
                 </div>
             </div>
-            <div id="related-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+            <div id="related-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch"></div>
         </div>
     </div>
 
     <!-- ================= INDIVIDUAL BLOG ARTICLE SUBPAGE VIEW ================= -->
     <div id="article-view" class="hidden flex-grow max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
-        <!-- Breadcrumbs -->
         <nav class="flex items-center gap-2 text-xs text-slate-400 mb-6">
             <a href="/" onclick="navigateTo('/'); return false;" class="hover:text-accent-blue transition-colors">Home</a>
             <i class="fa-solid fa-chevron-right text-[10px] text-slate-600"></i>
@@ -315,7 +346,7 @@
 
         <div class="mt-12">
             <h3 class="text-xl font-bold text-white mb-6">More Recommended Articles</h3>
-            <div id="article-related-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+            <div id="article-related-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch"></div>
         </div>
     </div>
 
@@ -328,8 +359,9 @@
                 <p class="text-sm text-slate-400 mt-2">In-depth technical guides, drafting best practices, structural standards, and CAD optimization workflows written for professional architects and civil engineers.</p>
             </div>
 
-            <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
-            <div id="blog-pagination" class="mt-10 flex items-center justify-center gap-2 flex-wrap"></div>
+            <!-- Perfectly Aligned Blog Grid -->
+            <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch"></div>
+            <div id="blog-pagination" class="mt-12 flex items-center justify-center gap-2 flex-wrap"></div>
         </div>
     </section>
 
@@ -567,7 +599,6 @@
             }
         ];
 
-        // Generate full rich 500+ word articles for items 4 to 51 dynamically so all items have rich unique text
         for (let i = 4; i <= 51; i++) {
             defaultDwgDatabase.push({
                 id: i,
@@ -607,11 +638,6 @@
 
         const blogArticlesDatabase = [];
         const blogCategories = ["CAD Optimization", "Drafting Standards", "Productivity", "Civil Engineering", "GIS & Mapping", "MEP Coordination", "Plumbing", "Structural", "Automation", "Architecture"];
-        const blogTopics = [
-            "Purge Heavy AutoCAD DWG Files", "Commercial Layer Management Standards", "Creating Custom Dynamic Blocks", 
-            "Civil 3D Alignment Surfaces & Grading", "Georeferencing GIS Shapefiles", "MEP Clash Detection Workflows", 
-            "Plumbing Vent Stack Sizing", "Steel Moment Frame Connections", "AutoLISP Routine Automation", "Acoustic STC Wall Assemblies"
-        ];
 
         for (let i = 1; i <= 100; i++) {
             blogArticlesDatabase.push({
@@ -723,7 +749,6 @@
             document.getElementById("subpage-badge-cat").textContent = item.category;
             document.getElementById("subpage-tags").innerHTML = item.tags.map(tag => `<span class="text-xs px-2.5 py-1 bg-slate-950 border border-slate-800 text-slate-300 rounded-lg inline-block">#${tag}</span>`).join('');
             
-            // Render the 500+ word unique article
             document.getElementById("subpage-long-article").innerHTML = item.longArticle || `<p>Comprehensive technical documentation for ${item.title}. This verified DWG file provides accurate vector geometry for professional engineers and architects.</p>`;
 
             const dlBtn = document.getElementById("subpage-download-btn");
@@ -738,14 +763,14 @@
             
             if (relatedGrid) {
                 relatedGrid.innerHTML = relatedItems.map(rel => `
-                    <div class="bg-slate-900 border border-slate-800/80 rounded-2xl overflow-hidden group hover:border-slate-700 transition-all duration-300 flex flex-col shadow-xl cursor-pointer" onclick="navigateTo('?block=${rel.id}')">
-                        <div class="relative h-40 overflow-hidden bg-slate-950 flex-shrink-0">
-                            <img src="${rel.image}" alt="${rel.title.replace(/"/g, '&quot;')}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100">
+                    <div class="bg-slate-900 border border-slate-800/80 rounded-2xl overflow-hidden group hover:border-slate-700 transition-all duration-300 flex flex-col shadow-xl cursor-pointer h-full" onclick="navigateTo('?block=${rel.id}')">
+                        <div class="cad-card-img-wrapper bg-slate-950 shrink-0">
+                            <img src="${rel.image}" alt="${rel.title.replace(/"/g, '&quot;')}" class="group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100">
                             <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-slate-950/80 border border-slate-800 text-[9px] uppercase font-bold text-accent-blue">${rel.category}</span>
                         </div>
                         <div class="p-4 flex-grow flex flex-col justify-between">
                             <h3 class="text-sm font-bold text-white mb-2 group-hover:text-accent-blue transition-colors line-clamp-2">${rel.title}</h3>
-                            <div class="flex items-center justify-between pt-2 border-t border-slate-800 text-[11px] text-slate-400">
+                            <div class="flex items-center justify-between pt-2 border-t border-slate-800 text-[11px] text-slate-400 mt-auto">
                                 <span>${rel.fileSize}</span>
                                 <span class="text-accent-blue font-semibold">View Block →</span>
                             </div>
@@ -799,10 +824,9 @@
             paginatedItems.forEach((item) => {
                 const sanitizedTitle = item.title.replace(/"/g, '&quot;');
                 gridHTML += `
-                    <div class="bg-slate-900 border border-slate-800/80 rounded-2xl overflow-hidden group hover:border-slate-700 transition-all duration-300 flex flex-col shadow-xl">
-                        <div class="relative h-48 overflow-hidden bg-slate-950 flex-shrink-0 cursor-pointer" onclick="navigateTo('?block=${item.id}')">
-                            <img src="${item.image}" alt="${sanitizedTitle}" title="${sanitizedTitle}" onerror="this.src='https://placehold.co/600x400/0f172a/ef4444?text=DWG+Preview'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
+                    <div class="bg-slate-900 border border-slate-800/80 rounded-2xl overflow-hidden group hover:border-slate-700 transition-all duration-300 flex flex-col shadow-xl h-full">
+                        <div class="cad-card-img-wrapper cursor-pointer shrink-0" onclick="navigateTo('?block=${item.id}')">
+                            <img src="${item.image}" alt="${sanitizedTitle}" title="${sanitizedTitle}" onerror="this.src='https://placehold.co/600x400/0f172a/ef4444?text=DWG+Preview'" class="group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100">
                             <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                                 <span class="px-3 py-1.5 rounded-xl bg-slate-900/90 text-white text-xs font-medium border border-slate-700 flex items-center gap-1.5 shadow-lg"><i class="fa-solid fa-arrow-up-right-from-square text-accent-blue"></i> View Details</span>
                             </div>
@@ -824,7 +848,7 @@
                                 <button onclick="openDownloadModal(${item.id})" class="px-3 py-2 bg-accent-blue/10 hover:bg-accent-blue border border-accent-blue/30 hover:border-accent-blue text-accent-blue hover:text-white text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-1.5"><i class="fa-solid fa-arrow-down-long"></i> Download</button>
                             </div>
                         </div>
-                    `;
+                    </div>`;
             });
 
             if (gridEl) gridEl.innerHTML = gridHTML;
@@ -878,7 +902,7 @@
             const currentArticles = blogArticlesDatabase.slice(startIndex, startIndex + blogPerPage);
 
             blogGrid.innerHTML = currentArticles.map(article => `
-                <div class="bg-slate-900 border border-slate-800/80 rounded-2xl overflow-hidden shadow-xl flex flex-col group hover:border-slate-700 transition-all">
+                <div class="bg-slate-900 border border-slate-800/80 rounded-2xl overflow-hidden shadow-xl flex flex-col group hover:border-slate-700 transition-all h-full">
                     <div class="p-6 flex-grow flex flex-col justify-between">
                         <div>
                             <div class="flex items-center justify-between text-xs text-slate-500 mb-3">
@@ -888,7 +912,7 @@
                             <h3 class="text-base font-bold text-white mb-2 group-hover:text-accent-blue transition-colors cursor-pointer" onclick="navigateTo('?article=${article.slug}')">${article.title}</h3>
                             <p class="text-xs text-slate-400 leading-relaxed mb-4 line-clamp-3">${article.summary}</p>
                         </div>
-                        <div class="pt-4 border-t border-slate-800/60 flex items-center justify-between">
+                        <div class="pt-4 border-t border-slate-800/60 flex items-center justify-between mt-auto">
                             <span class="text-[11px] text-slate-500">${article.date}</span>
                             <button onclick="navigateTo('?article=${article.slug}')" class="text-xs font-semibold text-accent-blue hover:underline flex items-center gap-1">Read Article <i class="fa-solid fa-arrow-right text-[10px]"></i></button>
                         </div>
@@ -962,7 +986,7 @@
             
             if (relatedGrid) {
                 relatedGrid.innerHTML = relatedArticles.map(rel => `
-                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl flex flex-col justify-between group hover:border-slate-700 transition-all cursor-pointer" onclick="navigateTo('?article=${rel.slug}')">
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl flex flex-col justify-between group hover:border-slate-700 transition-all cursor-pointer h-full" onclick="navigateTo('?article=${rel.slug}')">
                         <div>
                             <div class="flex items-center justify-between text-xs text-slate-500 mb-2">
                                 <span class="text-accent-blue font-semibold uppercase tracking-wider text-[10px]">${rel.category}</span>
@@ -971,7 +995,7 @@
                             <h4 class="text-sm font-bold text-white mb-2 group-hover:text-accent-blue transition-colors line-clamp-2">${rel.title}</h4>
                             <p class="text-xs text-slate-400 line-clamp-2 mb-4">${rel.summary}</p>
                         </div>
-                        <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-accent-blue font-semibold">
+                        <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-accent-blue font-semibold mt-auto">
                             <span>Read Guide</span>
                             <i class="fa-solid fa-arrow-right text-[10px]"></i>
                         </div>
@@ -1146,8 +1170,6 @@
                     <p>FREEDWG is a premier open-access online repository dedicated to architects, structural engineers, interior designers, civil engineers, and drafting students worldwide. Founded with the mission to democratize access to high-quality CAD resources, our platform offers thousands of meticulously verified 2D and 3D AutoCAD blocks, architectural details, and MEP schematics.</p>
                     <h3>Our Commitment to Quality & Accuracy</h3>
                     <p>Every DWG file hosted on FREEDWG undergoes thorough technical review by licensed drafting professionals. We ensure clean layer organization, proper scale calibration in metric and imperial units, and zero fragmented geometry. Whether you are drafting a residential villa, designing a commercial office complex, or preparing structural reinforcement details, FREEDWG provides the reliable technical foundation your projects demand.</p>
-                    <h3>Empowering the Global Engineering Community</h3>
-                    <p>We believe that sharing standardized drafting resources accelerates innovation and improves safety standards across the architecture, engineering, and construction (AEC) industry. Our platform is completely free to use, supported by ethical advertising partnerships that allow us to maintain and expand our technical library continuously.</p>
                 `;
             } else if (pageType === 'contact') {
                 title = "Contact Us & Technical Support"; iconClass = "fa-solid fa-headset";
@@ -1160,27 +1182,22 @@
                         <li><strong>File Contributions & Submissions:</strong> submit@freedwg.net</li>
                         <li><strong>Copyright & DMCA Inquiries:</strong> legal@freedwg.net</li>
                     </ul>
-                    <p>Our team typically responds to all inquiries within 24 to 48 business hours.</p>
                 `;
             } else if (pageType === 'privacy') {
                 title = "Privacy Policy - FREEDWG"; iconClass = "fa-solid fa-shield-halved";
                 contentHTML = `
                     <h3>Privacy Policy & Data Protection</h3>
                     <p>At FREEDWG, accessible from freedwg.net, the privacy of our visitors is of extreme importance to us. This Privacy Policy document outlines the types of personal information that is collected and recorded by FREEDWG and how we use it.</p>
-                    <h3>Log Files & Analytics</h3>
-                    <p>Like many other Web sites, FREEDWG makes use of standard log files. These files merely log visitors to the site—usually a standard procedure for hosting companies and a part of hosting services' analytics. The information inside the log files includes internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date/time stamp, referring/exit pages, and possibly the number of clicks.</p>
                     <h3>Google AdSense & Cookies</h3>
-                    <p>Google, as a third-party vendor, uses cookies to serve ads on FREEDWG. Google's use of advertising cookies enables it and its partners to serve ads to our users based on their visit to our sites and/or other sites on the Internet. Users may opt out of personalized advertising by visiting Ads Settings.</p>
+                    <p>Google, as a third-party vendor, uses cookies to serve ads on FREEDWG. Google's use of advertising cookies enables it and its partners to serve ads to our users based on their visit to our sites and/or other sites on the Internet.</p>
                 `;
             } else if (pageType === 'terms') {
                 title = "Terms & Conditions of Use"; iconClass = "fa-solid fa-file-contract";
                 contentHTML = `
                     <h3>Terms and Conditions</h3>
-                    <p>Welcome to FREEDWG. By accessing and using this website, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by these terms, please do not use this site.</p>
+                    <p>Welcome to FREEDWG. By accessing and using this website, you accept and agree to be bound by the terms and provision of this agreement.</p>
                     <h3>Intellectual Property & File Usage</h3>
-                    <p>All AutoCAD DWG drawings, blocks, blueprints, and technical guides provided on FREEDWG are made available for personal, educational, and professional reference and design use. While users are free to download and incorporate these files into their architectural and engineering projects, redistribution, resale, or repackaging of our CAD database on competing download platforms without prior written authorization is strictly prohibited.</p>
-                    <h3>Limitation of Liability</h3>
-                    <p>All CAD blocks and engineering drawings are provided "as is" without warranty of any kind, either expressed or implied. Users are solely responsible for verifying all dimensions, structural load calculations, and municipal code compliance with a licensed professional engineer prior to construction administration.</p>
+                    <p>All AutoCAD DWG drawings, blocks, blueprints, and technical guides provided on FREEDWG are made available for personal, educational, and professional reference and design use.</p>
                 `;
             }
 
