@@ -425,6 +425,100 @@
         </div>
     </section>
 
+    <!-- ================= ENHANCED INTERACTIVE AUTOCAD PRACTICE SANDBOX & SHORTCUT TRAINER ================= -->
+    <section class="border-t border-slate-900 bg-slate-900/60 py-16 px-4 sm:px-6 lg:px-8 w-full">
+        <div class="max-w-[90rem] mx-auto w-full">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <span class="text-xs uppercase font-bold tracking-wider text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20 mb-3 inline-block">Enhanced Interactive CAD Workspace</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-2">Advanced AutoCAD Practice Sandbox & Trainer</h2>
+                <p class="text-sm text-slate-400 mt-2">Draft with professional tools like Line, Circle, Rectangle, Offset, Move, and Trim on our upgraded CAD grid canvas, or test your command knowledge in the quiz trainer!</p>
+            </div>
+
+            <div class="bg-slate-950 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl max-w-7xl mx-auto">
+                <!-- Mode Switcher Tabs -->
+                <div class="flex items-center justify-center gap-3 mb-6 flex-wrap">
+                    <button id="tab-canvas-btn" onclick="switchCadMode('canvas')" class="px-5 py-2.5 rounded-xl text-xs font-bold transition-all bg-accent-blue text-white shadow-lg shadow-accent-blue/25 flex items-center gap-2">
+                        <i class="fa-solid fa-pen-ruler"></i> Interactive Drafting Canvas
+                    </button>
+                    <button id="tab-trainer-btn" onclick="switchCadMode('trainer')" class="px-5 py-2.5 rounded-xl text-xs font-bold transition-all bg-slate-900 border border-slate-800 text-slate-400 hover:text-white flex items-center gap-2">
+                        <i class="fa-solid fa-gamepad"></i> Shortcut Speed Trainer Quiz
+                    </button>
+                </div>
+
+                <!-- MODE 1: INTERACTIVE DRAWING CANVAS -->
+                <div id="cad-canvas-mode" class="space-y-4">
+                    <!-- Upgraded Toolbar & Status Bar -->
+                    <div class="flex flex-wrap items-center justify-between gap-3 bg-slate-900 border border-slate-800 px-4 py-3 rounded-2xl">
+                        <div class="flex items-center flex-wrap gap-2">
+                            <span class="text-xs font-bold text-slate-400 mr-1"><i class="fa-solid fa-toolbox text-accent-blue"></i> Draw:</span>
+                            <button onclick="setCadTool('line')" id="tool-line" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-accent-blue text-white transition-all shadow">Line (L)</button>
+                            <button onclick="setCadTool('polyline')" id="tool-polyline" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">Polyline (PL)</button>
+                            <button onclick="setCadTool('circle')" id="tool-circle" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">Circle (C)</button>
+                            <button onclick="setCadTool('rectangle')" id="tool-rectangle" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">Rectangle (REC)</button>
+                            
+                            <span class="text-xs font-bold text-slate-400 mx-1">| Modify:</span>
+                            <button onclick="setCadTool('move')" id="tool-move" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">Move (M)</button>
+                            <button onclick="setCadTool('offset')" id="tool-offset" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">Offset (O)</button>
+                            <button onclick="setCadTool('trim')" id="tool-trim" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">Trim (TR)</button>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button onclick="clearCadCanvas()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-lg transition-colors flex items-center gap-1.5">
+                                <i class="fa-solid fa-rotate-right"></i> Clear
+                            </button>
+                            <button onclick="undoCadCanvas()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-lg transition-colors flex items-center gap-1.5">
+                                <i class="fa-solid fa-rotate-left"></i> Undo
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Canvas Container -->
+                    <div class="relative bg-[#0b101d] border border-slate-800 rounded-2xl overflow-hidden shadow-inner w-full h-[480px] cursor-crosshair">
+                        <canvas id="practice-canvas" class="w-full h-full block"></canvas>
+                        <!-- HUD overlay info -->
+                        <div class="absolute bottom-3 left-3 bg-slate-900/85 backdrop-blur-md px-3 py-1.5 rounded-lg border border-slate-800 text-[11px] text-slate-300 pointer-events-none flex items-center gap-3">
+                            <span>Active Tool: <strong id="hud-tool" class="text-accent-amber uppercase">Line (L)</strong></span>
+                            <span>•</span>
+                            <span>Cursor: <strong id="hud-coords" class="text-white">X: 0, Y: 0</strong></span>
+                            <span>•</span>
+                            <span>Entities: <strong id="hud-count" class="text-emerald-400">0</strong></span>
+                        </div>
+                        <div class="absolute top-3 right-3 bg-slate-900/85 backdrop-blur-md px-3 py-1.5 rounded-lg border border-slate-800 text-[11px] text-slate-300 pointer-events-none">
+                            <i class="fa-solid fa-circle-info text-accent-blue"></i> Click on grid points to draw or click objects for modify tools
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MODE 2: SHORTCUT SPEED TRAINER QUIZ -->
+                <div id="cad-trainer-mode" class="hidden space-y-6">
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 max-w-2xl mx-auto text-center space-y-6">
+                        <div class="flex items-center justify-between text-xs text-slate-400 border-b border-slate-800 pb-3">
+                            <span>Score: <strong id="trainer-score" class="text-emerald-400 text-sm">0</strong></span>
+                            <span>Streak: <strong id="trainer-streak" class="text-accent-amber text-sm">0</strong></span>
+                            <span>Question: <strong id="trainer-progress" class="text-white text-sm">1 / 15</strong></span>
+                        </div>
+
+                        <div class="py-4">
+                            <span class="text-xs uppercase font-bold text-accent-blue tracking-wider bg-accent-blue/10 px-3 py-1 rounded-full border border-accent-blue/20 inline-block mb-3">Identify the AutoCAD Command Shortcut</span>
+                            <h3 id="trainer-prompt" class="text-xl sm:text-2xl font-extrabold text-white">What is the shortcut command for: <span id="trainer-target" class="text-accent-amber underline">Line</span>?</h3>
+                        </div>
+
+                        <div id="trainer-options" class="grid grid-cols-2 gap-3">
+                            <!-- Options rendered dynamically -->
+                        </div>
+
+                        <div id="trainer-feedback" class="text-xs font-semibold py-2 min-h-[2rem]"></div>
+                        
+                        <div>
+                            <button onclick="restartTrainer()" class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold rounded-xl transition-colors border border-slate-700">
+                                Reset Trainer Challenge
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="bg-slate-950 border-t border-slate-900 py-8 px-4 sm:px-6 lg:px-8 text-center text-xs text-slate-500 w-full">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 w-full">
@@ -979,7 +1073,7 @@
                 summary: "Standardize your CAD workflow with AIA layer guidelines, color-by-layer protocols, and lineweight standards for multi-disciplinary coordination.",
                 content: `
                     <h2>Why Standardized Layering Matters in BIM & CAD</h2>
-                    <p>Multi-disciplinary engineering teams require clear layer separation so architectural, structural, MEP, and civil elements do not visually conflict during plot setups or XREF overlays. Without strict adherence to a unified layer standard, architectural floor plans become cluttered, rendering plumbing risers, HVAC ducting, and structural columns indistinguishable from background walls. A well-organized layer structure acts as the structural backbone of professional engineering documentation.</p>
+                    <p>Multi-disciplinary engineering teams require clear layer separation so architectural, structural, MEP, and civil elements do not visually conflict during plot setups or XREF overlays. Without strict adherence to a unified layer standard, architectural floor plans become cluttered, rendering plumbing risers, HVAC ductwork, and structural columns indistinguishable from background walls. A well-organized layer structure acts as the structural backbone of professional engineering documentation.</p>
                     <p>In large commercial projects involving dozens of consultants, inconsistent layer naming forces team members to spend hours troubleshooting layer visibility issues in viewports. Adopting rigorous organizational protocols ensures that every stakeholder can instantly identify, isolate, or freeze specific disciplines with absolute confidence.</p>
 
                     <h2>AIA Standard Naming Framework</h2>
@@ -1406,7 +1500,6 @@
                     <p>Ductwork schematics must establish precise positive or negative room pressure differentials to prevent airborne pathogen cross-contamination between infectious isolation wards and surgical theaters.</p>
                 `
             },
-            // Filling remaining articles in a structured generator pattern to ensure all 90+ are unique and rich
             ...Array.from({ length: 60 }, (_, idx) => {
                 const idNum = 62 + idx;
                 const specificTopics = [
@@ -1459,7 +1552,7 @@
             })
         ];
 
-        const categories = ["All", "Architecture", "Structural", "Electrical", "Mechanical", "Plumbing", "Landscape", "Furniture", "Vehicles", "Details", "Roofing"];
+        let categories = ["All", "Architecture", "Structural", "Electrical", "Mechanical", "Plumbing", "Landscape", "Furniture", "Vehicles", "Details", "Roofing"];
         let currentCategory = "All";
         let searchQuery = "";
         let activeDownloadLink = "";
@@ -1997,8 +2090,295 @@
             }, 4000);
         }
 
+        // ================= ENHANCED INTERACTIVE CAD PRACTICE ENGINE =================
+        let currentCadTool = 'line';
+        let cadEntities = [];
+        let drawingState = { active: false, startX: 0, startY: 0, currentX: 0, currentY: 0 };
+        let selectedEntityIndex = -1;
+
+        const questionsData = [
+            { prompt: "Line", options: ["L", "PL", "C", "TR"], answer: "L" },
+            { prompt: "Polyline", options: ["PL", "POL", "REC", "LINE"], answer: "PL" },
+            { prompt: "Circle", options: ["CI", "C", "CR", "CIR"], answer: "C" },
+            { prompt: "Rectangle", options: ["REC", "RET", "BOX", "SQ"], answer: "REC" },
+            { prompt: "Copy", options: ["CP", "CO", "COPY", "Both CO & CP"], answer: "Both CO & CP" },
+            { prompt: "Trim", options: ["TR", "EXT", "CUT", "BR"], answer: "TR" },
+            { prompt: "Move", options: ["M", "MV", "MOV", "DISP"], answer: "M" },
+            { prompt: "Rotate", options: ["RO", "ROT", "TURN", "ANG"], answer: "RO" },
+            { prompt: "Offset", options: ["O", "OF", "PAR", "DIST"], answer: "O" },
+            { prompt: "Extend", options: ["EX", "EXT", "LEN", "STRETCH"], answer: "EX" },
+            { prompt: "Hatch", options: ["H", "HAT", "PATTERN", "FILL"], answer: "H" },
+            { prompt: "Layer Properties", options: ["LA", "LAYER", "LY", "LP"], answer: "LA" },
+            { prompt: "Properties Palette", options: ["PR", "PROP", "Ctrl + 1", "Both PR & Ctrl + 1"], answer: "Both PR & Ctrl + 1" },
+            { prompt: "Undo", options: ["U", "UNDO", "Ctrl + Z", "All of these"], answer: "All of these" },
+            { prompt: "Save Drawing", options: ["S", "SAVE", "Ctrl + S", "Both SAVE & Ctrl + S"], answer: "Both SAVE & Ctrl + S" }
+        ];
+        let currentQIndex = 0;
+        let trainerScore = 0;
+        let trainerStreak = 0;
+
+        function switchCadMode(mode) {
+            const canvasBtn = document.getElementById("tab-canvas-btn");
+            const trainerBtn = document.getElementById("tab-trainer-btn");
+            const canvasMode = document.getElementById("cad-canvas-mode");
+            const trainerMode = document.getElementById("cad-trainer-mode");
+
+            if (mode === 'canvas') {
+                canvasBtn.className = "px-5 py-2.5 rounded-xl text-xs font-bold transition-all bg-accent-blue text-white shadow-lg shadow-accent-blue/25 flex items-center gap-2";
+                trainerBtn.className = "px-5 py-2.5 rounded-xl text-xs font-bold transition-all bg-slate-900 border border-slate-800 text-slate-400 hover:text-white flex items-center gap-2";
+                canvasMode.classList.remove("hidden");
+                trainerMode.classList.add("hidden");
+                setTimeout(resizeCadCanvas, 50);
+            } else {
+                trainerBtn.className = "px-5 py-2.5 rounded-xl text-xs font-bold transition-all bg-accent-blue text-white shadow-lg shadow-accent-blue/25 flex items-center gap-2";
+                canvasBtn.className = "px-5 py-2.5 rounded-xl text-xs font-bold transition-all bg-slate-900 border border-slate-800 text-slate-400 hover:text-white flex items-center gap-2";
+                trainerMode.classList.remove("hidden");
+                canvasMode.classList.add("hidden");
+                initTrainerQuestion();
+            }
+        }
+
+        window.switchCadMode = switchCadMode;
+
+        window.setCadTool = function(tool) {
+            currentCadTool = tool;
+            selectedEntityIndex = -1;
+            ['line', 'polyline', 'circle', 'rectangle', 'move', 'offset', 'trim'].forEach(t => {
+                const btn = document.getElementById(`tool-${t}`);
+                if (btn) {
+                    if (t === tool) {
+                        btn.className = "px-3 py-1.5 rounded-lg text-xs font-semibold bg-accent-blue text-white transition-all shadow";
+                    } else {
+                        btn.className = "px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all";
+                    }
+                }
+            });
+            const toolNames = { line: 'Line (L)', polyline: 'Polyline (PL)', circle: 'Circle (C)', rectangle: 'Rectangle (REC)', move: 'Move (M)', offset: 'Offset (O)', trim: 'Trim (TR)' };
+            document.getElementById("hud-tool").textContent = toolNames[tool] || tool;
+        };
+
+        window.clearCadCanvas = function() {
+            cadEntities = [];
+            selectedEntityIndex = -1;
+            redrawCadCanvas();
+        };
+
+        window.undoCadCanvas = function() {
+            cadEntities.pop();
+            selectedEntityIndex = -1;
+            redrawCadCanvas();
+        };
+
+        const canvas = document.getElementById('practice-canvas');
+        let ctx = null;
+
+        function resizeCadCanvas() {
+            if (!canvas) return;
+            const rect = canvas.getBoundingClientRect();
+            canvas.width = rect.width * window.devicePixelRatio;
+            canvas.height = rect.height * window.devicePixelRatio;
+            if (ctx) ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+            redrawCadCanvas();
+        }
+
+        function redrawCadCanvas() {
+            if (!canvas) return;
+            if (!ctx) ctx = canvas.getContext('2d');
+            const w = canvas.width / window.devicePixelRatio;
+            const h = canvas.height / window.devicePixelRatio;
+
+            ctx.clearRect(0, 0, w, h);
+
+            // Draw AutoCAD grid
+            ctx.strokeStyle = '#1e293b';
+            ctx.lineWidth = 1;
+            const gridSize = 30;
+            for (let x = 0; x < w; x += gridSize) {
+                ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
+            }
+            for (let y = 0; y < h; y += gridSize) {
+                ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
+            }
+
+            // Draw entities
+            cadEntities.forEach((ent, idx) => {
+                ctx.strokeStyle = idx === selectedEntityIndex ? '#f59e0b' : '#ef4444';
+                ctx.fillStyle = 'rgba(239, 68, 68, 0.1)';
+                ctx.lineWidth = idx === selectedEntityIndex ? 3 : 2;
+
+                if (ent.type === 'line') {
+                    ctx.beginPath(); ctx.moveTo(ent.x1, ent.y1); ctx.lineTo(ent.x2, ent.y2); ctx.stroke();
+                } else if (ent.type === 'circle') {
+                    const radius = Math.hypot(ent.x2 - ent.x1, ent.y2 - ent.y1);
+                    ctx.beginPath(); ctx.arc(ent.x1, ent.y1, radius, 0, Math.PI * 2); ctx.stroke(); ctx.fill();
+                } else if (ent.type === 'rectangle') {
+                    ctx.beginPath(); ctx.rect(ent.x1, ent.y1, ent.x2 - ent.x1, ent.y2 - ent.y1); ctx.stroke(); ctx.fill();
+                } else if (ent.type === 'polyline') {
+                    if (ent.pts && ent.pts.length > 0) {
+                        ctx.beginPath();
+                        ctx.moveTo(ent.pts[0].x, ent.pts[0].y);
+                        for (let i = 1; i < ent.pts.length; i++) {
+                            ctx.lineTo(ent.pts[i].x, ent.pts[i].y);
+                        }
+                        ctx.stroke();
+                    }
+                }
+            });
+
+            // Active drawing preview
+            if (drawingState.active) {
+                ctx.strokeStyle = '#f59e0b';
+                ctx.lineWidth = 2;
+                if (currentCadTool === 'line') {
+                    ctx.beginPath(); ctx.moveTo(drawingState.startX, drawingState.startY); ctx.lineTo(drawingState.currentX, drawingState.currentY); ctx.stroke();
+                } else if (currentCadTool === 'circle') {
+                    const r = Math.hypot(drawingState.currentX - drawingState.startX, drawingState.currentY - drawingState.startY);
+                    ctx.beginPath(); ctx.arc(drawingState.startX, drawingState.startY, r, 0, Math.PI * 2); ctx.stroke();
+                } else if (currentCadTool === 'rectangle') {
+                    ctx.beginPath(); ctx.rect(drawingState.startX, drawingState.startY, drawingState.currentX - drawingState.startX, drawingState.currentY - drawingState.startY); ctx.stroke();
+                }
+            }
+
+            document.getElementById("hud-count").textContent = cadEntities.length;
+        }
+
+        if (canvas) {
+            canvas.addEventListener('mousedown', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                if (currentCadTool === 'move') {
+                    if (selectedEntityIndex === -1) {
+                        // Select closest entity
+                        selectedEntityIndex = cadEntities.length - 1; // pick latest or check distance
+                        redrawCadCanvas();
+                    } else {
+                        // Move selected entity
+                        const ent = cadEntities[selectedEntityIndex];
+                        const dx = x - ent.x1;
+                        const dy = y - ent.y1;
+                        ent.x1 += dx; ent.y1 += dy;
+                        if (ent.x2 !== undefined) { ent.x2 += dx; ent.y2 += dy; }
+                        selectedEntityIndex = -1;
+                        redrawCadCanvas();
+                    }
+                    return;
+                }
+
+                if (currentCadTool === 'offset') {
+                    if (cadEntities.length > 0) {
+                        const last = cadEntities[cadEntities.length - 1];
+                        let copy = JSON.parse(JSON.stringify(last));
+                        if (copy.x1 !== undefined) { copy.x1 += 20; copy.y1 += 20; }
+                        if (copy.x2 !== undefined) { copy.x2 += 20; copy.y2 += 20; }
+                        cadEntities.push(copy);
+                        redrawCadCanvas();
+                    }
+                    return;
+                }
+
+                if (currentCadTool === 'trim') {
+                    if (cadEntities.length > 0) {
+                        cadEntities.pop(); // Trim latest entity
+                        redrawCadCanvas();
+                    }
+                    return;
+                }
+
+                // Drawing tools
+                if (!drawingState.active) {
+                    drawingState.active = true;
+                    drawingState.startX = x;
+                    drawingState.startY = y;
+                    drawingState.currentX = x;
+                    drawingState.currentY = y;
+                } else {
+                    if (currentCadTool === 'line') {
+                        cadEntities.push({ type: 'line', x1: drawingState.startX, y1: drawingState.startY, x2: x, y2: y });
+                    } else if (currentCadTool === 'circle') {
+                        cadEntities.push({ type: 'circle', x1: drawingState.startX, y1: drawingState.startY, x2: x, y2: y });
+                    } else if (currentCadTool === 'rectangle') {
+                        cadEntities.push({ type: 'rectangle', x1: drawingState.startX, y1: drawingState.startY, x2: x, y2: y });
+                    }
+                    drawingState.active = false;
+                    redrawCadCanvas();
+                }
+            });
+
+            canvas.addEventListener('mousemove', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                document.getElementById("hud-coords").textContent = `X: ${Math.round(x)}, Y: ${Math.round(y)}`;
+
+                if (drawingState.active) {
+                    drawingState.currentX = x;
+                    drawingState.currentY = y;
+                    redrawCadCanvas();
+                }
+            });
+
+            canvas.addEventListener('mouseleave', () => {
+                if (drawingState.active) {
+                    drawingState.active = false;
+                    redrawCadCanvas();
+                }
+            });
+        }
+
+        // Trainer Quiz Logic
+        function initTrainerQuestion() {
+            if (currentQIndex >= questionsData.length) {
+                currentQIndex = 0;
+            }
+            const q = questionsData[currentQIndex];
+            document.getElementById("trainer-target").textContent = q.prompt;
+            document.getElementById("trainer-progress").textContent = `${currentQIndex + 1} / ${questionsData.length}`;
+            document.getElementById("trainer-score").textContent = trainerScore;
+            document.getElementById("trainer-streak").textContent = trainerStreak;
+            document.getElementById("trainer-feedback").textContent = "";
+
+            const optContainer = document.getElementById("trainer-options");
+            optContainer.innerHTML = q.options.map(opt => `
+                <button onclick="checkTrainerAnswer('${opt.replace(/'/g, "\\'")}')" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-accent-blue text-white font-mono font-bold text-base transition-all hover:bg-slate-800">
+                    ${opt}
+                </button>
+            `).join('');
+        }
+
+        window.checkTrainerAnswer = function(selected) {
+            const q = questionsData[currentQIndex];
+            const feedbackEl = document.getElementById("trainer-feedback");
+            if (selected === q.answer) {
+                trainerScore += 10;
+                trainerStreak += 1;
+                feedbackEl.innerHTML = `<span class="text-emerald-400"><i class="fa-solid fa-circle-check"></i> Correct! Command shortcut for ${q.prompt} is ${q.answer}.</span>`;
+            } else {
+                trainerStreak = 0;
+                feedbackEl.innerHTML = `<span class="text-red-400"><i class="fa-solid fa-circle-xmark"></i> Incorrect. The correct answer was ${q.answer}.</span>`;
+            }
+            
+            document.getElementById("trainer-score").textContent = trainerScore;
+            document.getElementById("trainer-streak").textContent = trainerStreak;
+
+            currentQIndex++;
+            setTimeout(() => {
+                initTrainerQuestion();
+            }, 1200);
+        };
+
+        window.restartTrainer = function() {
+            currentQIndex = 0;
+            trainerScore = 0;
+            trainerStreak = 0;
+            initTrainerQuestion();
+        };
+
         document.addEventListener("DOMContentLoaded", () => {
             init();
+            setTimeout(resizeCadCanvas, 100);
         });
 
         function init() {
@@ -2008,6 +2388,7 @@
 
             handleRoute();
             window.addEventListener('popstate', handleRoute);
+            window.addEventListener('resize', resizeCadCanvas);
 
             if (searchInput) {
                 searchInput.addEventListener("input", (e) => {
