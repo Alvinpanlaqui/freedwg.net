@@ -113,10 +113,10 @@
     </header>
 
     <!-- ================= CATALOG VIEW (Default) ================= -->
-    <div id="catalog-view">
+    <div id="catalog-view" class="w-full">
         <!-- Hero Section -->
-        <section class="relative pt-10 pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden border-b border-slate-900 bg-gradient-to-b from-slate-900/50 to-slate-950">
-            <div class="max-w-4xl mx-auto text-center relative z-10">
+        <section class="relative pt-10 pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden border-b border-slate-900 bg-gradient-to-b from-slate-900/50 to-slate-950 w-full">
+            <div class="max-w-4xl mx-auto text-center relative z-10 w-full">
                 <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
                     Free AutoCAD Blocks, Drawings & Blueprints
                 </h1>
@@ -154,8 +154,8 @@
         <main id="catalog" class="flex-grow max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
             
             <!-- SEO-Optimized Catalog Header & Grid Title Area -->
-            <div class="mb-8 pb-6 border-b border-slate-900">
-                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div class="mb-8 pb-6 border-b border-slate-900 w-full">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 w-full">
                     <div>
                         <div class="flex items-center gap-2 mb-2">
                             <span class="text-xs uppercase font-bold tracking-wider text-accent-blue bg-accent-blue/10 px-3 py-1 rounded-full border border-accent-blue/20">Open CAD Repository</span>
@@ -177,22 +177,22 @@
                 </div>
 
                 <!-- Category Filters Toolbar -->
-                <div class="mt-6 pt-6 border-t border-slate-900/60 flex items-center justify-between flex-wrap gap-4">
+                <div class="mt-6 pt-6 border-t border-slate-900/60 flex items-center justify-between flex-wrap gap-4 w-full">
                     <div id="category-filters" class="flex items-center flex-wrap gap-2">
                     </div>
                 </div>
             </div>
 
-            <!-- 4-Column Grid Layout -->
-            <div>
-                <div id="dwg-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- 4-Column Grid Layout with Fixed Positioning and Spacing -->
+            <div class="w-full">
+                <div id="dwg-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 items-stretch w-full">
                 </div>
 
-                <div id="pagination-container" class="mt-10 flex items-center justify-center gap-2 flex-wrap">
+                <div id="pagination-container" class="mt-10 flex items-center justify-center gap-2 flex-wrap w-full">
                 </div>
             </div>
 
-            <div id="empty-state" class="hidden text-center py-24">
+            <div id="empty-state" class="hidden text-center py-24 w-full">
                 <div class="w-16 h-16 bg-slate-900 border border-slate-800 rounded-2xl flex items-center justify-center mx-auto mb-4 text-slate-500 text-2xl">
                     <i class="fa-solid fa-folder-open"></i>
                 </div>
@@ -266,14 +266,14 @@
         </div>
 
         <!-- Related CAD Blocks Section -->
-        <div class="mt-16 pt-10 border-t border-slate-900">
+        <div class="mt-16 pt-10 border-t border-slate-900 w-full">
             <div class="flex items-center justify-between mb-6">
                 <div>
                     <h2 class="text-xl font-extrabold text-white">Related CAD Blocks</h2>
                     <p class="text-xs text-slate-400 mt-0.5">Explore similar architectural and engineering drawings from this category.</p>
                 </div>
             </div>
-            <div id="related-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div id="related-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 items-stretch w-full">
             </div>
         </div>
     </div>
@@ -327,25 +327,25 @@
         </article>
 
         <!-- Recommended Blog Articles Section -->
-        <div class="mt-12">
+        <div class="mt-12 w-full">
             <h3 class="text-xl font-bold text-white mb-6">More Recommended Articles</h3>
-            <div id="article-related-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div id="article-related-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch w-full">
             </div>
         </div>
     </div>
 
     <!-- AutoCAD Shortcut Keys & Reference Guide -->
-    <section class="border-t border-slate-900 bg-slate-900/40 py-16 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-[90rem] mx-auto">
+    <section class="border-t border-slate-900 bg-slate-900/40 py-16 px-4 sm:px-6 lg:px-8 w-full">
+        <div class="max-w-[90rem] mx-auto w-full">
             <div class="text-center max-w-3xl mx-auto mb-12">
                 <span class="text-xs uppercase font-bold tracking-wider text-accent-blue bg-accent-blue/10 px-3 py-1 rounded-full border border-accent-blue/20 mb-3 inline-block">Engineering Reference</span>
                 <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-2">AutoCAD Keyboard Shortcuts & Function Reference</h2>
                 <p class="text-sm text-slate-400 mt-2">Enhance your CAD productivity with essential command shortcuts, control key modifiers, and function key toggles.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch w-full">
                 <!-- Basic Drawing Commands -->
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl flex flex-col">
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl flex flex-col h-full">
                     <h3 class="text-sm font-bold text-white mb-4 flex items-center gap-2 border-b border-slate-800 pb-3">
                         <i class="fa-solid fa-pen-ruler text-accent-blue"></i> Drawing Commands
                     </h3>
@@ -360,7 +360,7 @@
                 </div>
 
                 <!-- Modification Commands -->
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl flex flex-col">
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl flex flex-col h-full">
                     <h3 class="text-sm font-bold text-white mb-4 flex items-center gap-2 border-b border-slate-800 pb-3">
                         <i class="fa-solid fa-object-ungroup text-accent-blue"></i> Modification Commands
                     </h3>
@@ -375,7 +375,7 @@
                 </div>
 
                 <!-- Control Key Shortcuts (Ctrl) -->
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl flex flex-col">
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl flex flex-col h-full">
                     <h3 class="text-sm font-bold text-white mb-4 flex items-center gap-2 border-b border-slate-800 pb-3">
                         <i class="fa-solid fa-keyboard text-accent-blue"></i> Control Key Shortcuts (Ctrl)
                     </h3>
@@ -390,7 +390,7 @@
                 </div>
 
                 <!-- Function Key Toggles (F1 - F12) -->
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl flex flex-col">
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl flex flex-col h-full">
                     <h3 class="text-sm font-bold text-white mb-4 flex items-center gap-2 border-b border-slate-800 pb-3">
                         <i class="fa-solid fa-sliders text-accent-blue"></i> Function Key Toggles (F1–F12)
                     </h3>
@@ -408,26 +408,26 @@
     </section>
 
     <!-- CAD Tips & Engineering Blog Section -->
-    <section id="blog-section" class="border-t border-slate-900 bg-slate-950 py-16 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-[90rem] mx-auto">
+    <section id="blog-section" class="border-t border-slate-900 bg-slate-950 py-16 px-4 sm:px-6 lg:px-8 w-full">
+        <div class="max-w-[90rem] mx-auto w-full">
             <div class="text-center max-w-3xl mx-auto mb-12">
-                <span class="text-xs uppercase font-bold tracking-wider text-accent-blue bg-accent-blue/10 px-3 py-1 rounded-full border border-accent-blue/20 mb-3 inline-block">50 Expert Technical Guides</span>
+                <span class="text-xs uppercase font-bold tracking-wider text-accent-blue bg-accent-blue/10 px-3 py-1 rounded-full border border-accent-blue/20 mb-3 inline-block">50 Technical Knowledge Guides</span>
                 <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-2">CAD Tips & Engineering Knowledge Base</h2>
                 <p class="text-sm text-slate-400 mt-2">In-depth technical guides, drafting best practices, structural standards, and CAD optimization workflows written for professional architects and civil engineers.</p>
             </div>
 
             <!-- Blog Grid (All 50 Articles rendered dynamically) -->
-            <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch w-full">
             </div>
             
-            <div id="blog-pagination" class="mt-10 flex items-center justify-center gap-2 flex-wrap">
+            <div id="blog-pagination" class="mt-10 flex items-center justify-center gap-2 flex-wrap w-full">
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-slate-950 border-t border-slate-900 py-8 px-4 sm:px-6 lg:px-8 text-center text-xs text-slate-500">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+    <footer class="bg-slate-950 border-t border-slate-900 py-8 px-4 sm:px-6 lg:px-8 text-center text-xs text-slate-500 w-full">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 w-full">
             <p>&copy; 2026 FREEDWG. Professional Open CAD Repository. Built for Architects & Engineers.</p>
             <div class="flex flex-wrap justify-center gap-4 text-slate-400">
                 <a href="?page=about" onclick="openPageModal('about'); return false;" class="hover:text-accent-blue transition-colors">About Us</a>
@@ -817,7 +817,7 @@
                 id: 50, title: "Cast-in-Place Concrete Sink and Kitchen Countertop Construction Detail | DWG Block", category: "Details", fileSize: "0.31 MB", downloads: 1820, image: "https://6ad07ae6a148e83390719c25.imgix.net/sandbox/50-CONCRETE%20SINK%20DETAIL%20-FREEDWG.NET.png", downloadLink: "https://drive.google.com/file/d/1uW-bRkIw8h8MRurzh9Ttq6eRSd0jmucg/view?usp=sharing", tags: ["Concrete Sink", "Countertop Detail", "Plumbing", "Kitchen Design"], description: "Comprehensive architectural and structural section detail for a poured-in-place concrete sink and kitchen counter support framing, including waterproofing membranes and plumbing waste connections." 
             },
             { 
-                id: 51, title: "Commercial & Residential Mop Basin Plumbing and Floor Drain Detail | DWG Block", category: "Plumbing", fileSize: "0.28 MB", downloads: 1190, image: "https://www.image2url.com/r2/default/images/1794896524295-8bd2444f-68e4-40c3-a1cb-3a969115b3e7.png", downloadLink: "https://drive.google.com/file/d/1Rootey0DTK39v4O7pcLslrwm_n-55mtX/view?usp=sharing", tags: ["Mop Basin", "Service Sink", "Floor Drain", "Plumbing Detail"], description: "Standard service sink / mop basin installation section detail showing wall-mounted faucet connections, tile curb layout, waterproof flashing, and P-trap drain alignment for janitorial spaces." 
+                id: 51, title: "Commercial & Residential Mop Basin Plumbing and Floor Drain Detail | DWG Block", category: "Plumbing", fileSize: "0.28 MB", downloads: 1190, image: "https://6ad07ae6a148e83390719c25.imgix.net/sandbox/51--MOP%20BASIN%20DETAIL%20-FREEDWG.NET.png", downloadLink: "https://drive.google.com/file/d/1Rootey0DTK39v4O7pcLslrwm_n-55mtX/view?usp=sharing", tags: ["Mop Basin", "Service Sink", "Floor Drain", "Plumbing Detail"], description: "Standard service sink / mop basin installation section detail showing wall-mounted faucet connections, tile curb layout, waterproof flashing, and P-trap drain alignment for janitorial spaces." 
             }
         ];
 
@@ -984,26 +984,141 @@
                     <p>Sound Transmission Class (STC) ratings dictate wall assembly construction in multifamily residential and commercial office buildings.</p>
                 `
             },
-            // Articles 11 through 100 with unique technical content
-            ...Array.from({ length: 90 }, (_, i) => ({
-                slug: `expert-cad-guide-${i + 11}`,
-                title: `Expert Technical Guide #${i + 11}: Advanced Engineering, BIM Integration & Drafting Optimization`,
-                category: ["Structural", "MEP", "Architecture", "Civil Engineering", "CAD Optimization", "BIM & Revit", "Urban Planning", "Sustainable Design"][i % 8],
-                readTime: `${5 + (i % 4)} min read`,
-                date: `July ${ (i % 30) + 1 }, 2026`,
-                summary: `Comprehensive engineering breakdown #${i + 11} covering advanced drafting methodologies, building codes, cross-platform interoperability, and professional AutoCAD workflow optimization.`,
-                content: `
-                    <h2>Overview of Technical Methodology #${i + 11}</h2>
-                    <p>Precision, strict adherence to international building codes, and thorough layer management remain paramount in modern architectural and structural documentation. This guide explores specialized techniques to elevate design efficiency.</p>
-                    <h2>Key Technical Considerations & Parameters</h2>
-                    <ul>
-                        <li>Complying with localized structural loading and seismic zone standards.</li>
-                        <li>Maintaining bidirectional associative data links between 2D DWG files and 3D BIM coordination models.</li>
-                        <li>Implementing rigorous quality assurance protocols prior to final client submission and construction administration.</li>
-                    </ul>
-                    <blockquote>Professional drafting standards minimize jobsite RFIs, reduce contractor misunderstandings, and accelerate municipal permit approvals.</blockquote>
-                `
-            }))
+            {
+                slug: "advanced-structural-rebar-detailing-best-practices",
+                title: "Advanced Structural Rebar Detailing and Anchorage Length Calculations",
+                category: "Structural",
+                readTime: "7 min read",
+                date: "July 1, 2026",
+                summary: "Comprehensive engineering breakdown covering advanced drafting methodologies, building codes, cross-platform interoperability, and professional AutoCAD workflow optimization.",
+                content: `<h2>Overview of Technical Methodology</h2><p>Precision, strict adherence to international building codes, and thorough layer management remain paramount in modern architectural and structural documentation.</p>`
+            },
+            {
+                slug: "optimizing-hvac-duct-routing-coordination",
+                title: "Optimizing HVAC Duct Routing and Ceiling Plenum Clearance Coordination",
+                category: "MEP",
+                readTime: "6 min read",
+                date: "July 2, 2026",
+                summary: "Comprehensive engineering breakdown covering advanced drafting methodologies, building codes, cross-platform interoperability, and professional AutoCAD workflow optimization.",
+                content: `<h2>Overview of Technical Methodology</h2><p>Precision, strict adherence to international building codes, and thorough layer management remain paramount in modern architectural and structural documentation.</p>`
+            },
+            {
+                slug: "facade-glazing-thermal-break-detailing",
+                title: "Facade Glazing Systems and Thermal Break Structural Detailing",
+                category: "Architecture",
+                readTime: "8 min read",
+                date: "July 3, 2026",
+                summary: "Comprehensive engineering breakdown covering advanced drafting methodologies, building codes, cross-platform interoperability, and professional AutoCAD workflow optimization.",
+                content: `<h2>Overview of Technical Methodology</h2><p>Precision, strict adherence to international building codes, and thorough layer management remain paramount in modern architectural and structural documentation.</p>`
+            },
+            {
+                slug: "site-earthwork-cut-fill-volume-analysis",
+                title: "Site Earthwork Cut and Fill Volume Analysis in Civil Engineering",
+                category: "Civil Engineering",
+                readTime: "7 min read",
+                date: "July 4, 2026",
+                summary: "Comprehensive engineering breakdown covering advanced drafting methodologies, building codes, cross-platform interoperability, and professional AutoCAD workflow optimization.",
+                content: `<h2>Overview of Technical Methodology</h2><p>Precision, strict adherence to international building codes, and thorough layer management remain paramount in modern architectural and structural documentation.</p>`
+            },
+            {
+                slug: "batch-attribute-extraction-cad-blocks",
+                title: "Batch Attribute Extraction and Schedule Generation from CAD Blocks",
+                category: "CAD Optimization",
+                readTime: "5 min read",
+                date: "July 5, 2026",
+                summary: "Comprehensive engineering breakdown covering advanced drafting methodologies, building codes, cross-platform interoperability, and professional AutoCAD workflow optimization.",
+                content: `<h2>Overview of Technical Methodology</h2><p>Precision, strict adherence to international building codes, and thorough layer management remain paramount in modern architectural and structural documentation.</p>`
+            },
+            {
+                slug: "revit-to-autocad-dwg-interoperability-standards",
+                title: "Revit to AutoCAD DWG Interoperability and Export Standards",
+                category: "BIM & Revit",
+                readTime: "6 min read",
+                date: "July 6, 2026",
+                summary: "Comprehensive engineering breakdown covering advanced drafting methodologies, building codes, cross-platform interoperability, and professional AutoCAD workflow optimization.",
+                content: `<h2>Overview of Technical Methodology</h2><p>Precision, strict adherence to international building codes, and thorough layer management remain paramount in modern architectural and structural documentation.</p>`
+            },
+            {
+                slug: "urban-master-plan-zoning-regulations",
+                title: "Urban Master Plan Layouts and Municipal Zoning Code Compliance",
+                category: "Urban Planning",
+                readTime: "8 min read",
+                date: "July 7, 2026",
+                summary: "Comprehensive engineering breakdown covering advanced drafting methodologies, building codes, cross-platform interoperability, and professional AutoCAD workflow optimization.",
+                content: `<h2>Overview of Technical Methodology</h2><p>Precision, strict adherence to international building codes, and thorough layer management remain paramount in modern architectural and structural documentation.</p>`
+            },
+            {
+                slug: "net-zero-energy-building-envelope-design",
+                title: "Net-Zero Energy Building Envelope Design and Passive Cooling",
+                category: "Sustainable Design",
+                readTime: "7 min read",
+                date: "July 8, 2026",
+                summary: "Comprehensive engineering breakdown covering advanced drafting methodologies, building codes, cross-platform interoperability, and professional AutoCAD workflow optimization.",
+                content: `<h2>Overview of Technical Methodology</h2><p>Precision, strict adherence to international building codes, and thorough layer management remain paramount in modern architectural and structural documentation.</p>`
+            },
+            {
+                slug: "seismic-isolation-bearing-structural-details",
+                title: "Seismic Isolation Bearing Installation and Foundation Details",
+                category: "Structural",
+                readTime: "9 min read",
+                date: "July 9, 2026",
+                summary: "Comprehensive engineering breakdown covering advanced drafting methodologies, building codes, cross-platform interoperability, and professional AutoCAD workflow optimization.",
+                content: `<h2>Overview of Technical Methodology</h2><p>Precision, strict adherence to international building codes, and thorough layer management remain paramount in modern architectural and structural documentation.</p>`
+            },
+            {
+                slug: "fire-sprinkler-hydraulic-calculation-workflows",
+                title: "Fire Sprinkler System Layout and Hydraulic Calculation Workflows",
+                category: "MEP",
+                readTime: "6 min read",
+                date: "July 10, 2026",
+                summary: "Comprehensive engineering breakdown covering advanced drafting methodologies, building codes, cross-platform interoperability, and professional AutoCAD workflow optimization.",
+                content: `<h2>Overview of Technical Methodology</h2><p>Precision, strict adherence to international building codes, and thorough layer management remain paramount in modern architectural and structural documentation.</p>`
+            },
+            ...Array.from({ length: 70 }, (_, i) => {
+                const cats = ["Structural", "MEP", "Architecture", "Civil Engineering", "CAD Optimization", "BIM & Revit", "Urban Planning", "Sustainable Design"];
+                const topics = [
+                    "High-Rise Core Wall Reinforcement and Slipform Detailing",
+                    "Pottery and Wastewater Treatment Plant Piping Schematics",
+                    "Modern Parametric Curtain Wall Panel Fabrication Drawings",
+                    "Hydrologic Stormwater Runoff Modeling and Retention Basins",
+                    "Custom Tool Palette Creation and Enterprise CAD Standardization",
+                    "Parametric Family Creation and Shared Parameters in BIM Suites",
+                    "Pedestrian Circulation Networks and Smart City Streetscapes",
+                    "Solar Photovoltaic Canopy Integration on Commercial Roofs",
+                    "Precast Concrete Wall Panel Connection and Lifting Anchors",
+                    "Hospital Cleanroom Air Filtration and Positive Pressure Ducting",
+                    "Waterproofing Membrane Detailing for Below-Grade Basements",
+                    "Geotechnical Borehole Log Integration and Soil Profile Mapping",
+                    "Automating Drawing Sheet Generation with Sheet Set Manager",
+                    "Point Cloud to DWG Scan-to-CAD Registration Workflows",
+                    "Transit-Oriented Development Station Layout and Platform Design",
+                    "Rainwater Harvesting System Storage Tank and Filtration Design"
+                ];
+                const cat = cats[i % cats.length];
+                const topic = topics[i % topics.length];
+                const uniqueTitle = `${topic} - Part ${i + 21}`;
+                const slug = uniqueTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+                
+                return {
+                    slug: slug,
+                    title: uniqueTitle,
+                    category: cat,
+                    readTime: `${5 + (i % 4)} min read`,
+                    date: `July ${ (i % 30) + 11 }, 2026`,
+                    summary: `Comprehensive engineering breakdown covering advanced drafting methodologies, building codes, cross-platform interoperability, and professional AutoCAD workflow optimization.`,
+                    content: `
+                        <h2>Overview of Technical Methodology</h2>
+                        <p>Precision, strict adherence to international building codes, and thorough layer management remain paramount in modern architectural and structural documentation. This guide explores specialized techniques to elevate design efficiency.</p>
+                        <h2>Key Technical Considerations & Parameters</h2>
+                        <ul>
+                            <li>Complying with localized structural loading and seismic zone standards.</li>
+                            <li>Maintaining bidirectional associative data links between 2D DWG files and 3D BIM coordination models.</li>
+                            <li>Implementing rigorous quality assurance protocols prior to final client submission and construction administration.</li>
+                        </ul>
+                        <blockquote>Professional drafting standards minimize jobsite RFIs, reduce contractor misunderstandings, and accelerate municipal permit approvals.</blockquote>
+                    `
+                };
+            })
         ];
 
         const categories = ["All", "Architecture", "Interior", "Structural", "Electrical", "Mechanical", "Plumbing", "Landscape", "Furniture", "Vehicles", "Urban", "Details", "Symbols", "Roofing"];
@@ -1045,7 +1160,7 @@
                 const catUrl = cat === "All" ? "/" : `?category=${encodeURIComponent(cat)}`;
                 return `
                     <button onclick="navigateTo('${catUrl}')" class="px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
-                            isActive ? 'bg-accent-blue text-white shadow-lg shadow-accent-blue/20' : 'bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800'
+                            isActive ? 'bg-accent-blue text-white shadow-lg shadow-accent-blue/25' : 'bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800'
                         }">
                         ${cat}
                     </button>`;
@@ -1099,14 +1214,14 @@
             
             if (relatedGrid) {
                 relatedGrid.innerHTML = relatedItems.map(rel => `
-                    <div class="bg-slate-900 border border-slate-800/80 rounded-2xl overflow-hidden group hover:border-slate-700 transition-all duration-300 flex flex-col shadow-xl cursor-pointer" onclick="navigateTo('?block=${rel.id}')">
-                        <div class="relative h-40 overflow-hidden bg-slate-950 flex-shrink-0">
+                    <div class="bg-slate-900 border border-slate-800/80 rounded-2xl overflow-hidden group hover:border-slate-700 transition-all duration-300 flex flex-col h-full shadow-xl cursor-pointer" onclick="navigateTo('?block=${rel.id}')">
+                        <div class="relative h-44 overflow-hidden bg-slate-950 flex-shrink-0">
                             <img src="${rel.image}" alt="${rel.title.replace(/"/g, '&quot;')}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100">
                             <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-slate-950/80 border border-slate-800 text-[9px] uppercase font-bold text-accent-blue">${rel.category}</span>
                         </div>
                         <div class="p-4 flex-grow flex flex-col justify-between">
                             <h3 class="text-sm font-bold text-white mb-2 group-hover:text-accent-blue transition-colors line-clamp-2">${rel.title}</h3>
-                            <div class="flex items-center justify-between pt-2 border-t border-slate-800 text-[11px] text-slate-400">
+                            <div class="flex items-center justify-between pt-2 border-t border-slate-800 text-[11px] text-slate-400 mt-auto">
                                 <span>${rel.fileSize}</span>
                                 <span class="text-accent-blue font-semibold">View Block →</span>
                             </div>
@@ -1160,7 +1275,7 @@
             paginatedItems.forEach((item) => {
                 const sanitizedTitle = item.title.replace(/"/g, '&quot;');
                 gridHTML += `
-                    <div class="bg-slate-900 border border-slate-800/80 rounded-2xl overflow-hidden group hover:border-slate-700 transition-all duration-300 flex flex-col shadow-xl">
+                    <div class="bg-slate-900 border border-slate-800/80 rounded-2xl overflow-hidden group hover:border-slate-700 transition-all duration-300 flex flex-col h-full shadow-xl">
                         <div class="relative h-48 overflow-hidden bg-slate-950 flex-shrink-0 cursor-pointer" onclick="navigateTo('?block=${item.id}')">
                             <img src="${item.image}" alt="${sanitizedTitle}" title="${sanitizedTitle}" onerror="this.src='https://placehold.co/600x400/0f172a/ef4444?text=DWG+Preview'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100">
                             <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
@@ -1207,7 +1322,7 @@
                 const isActive = i === currentPage;
                 paginationHTML += `
                     <button onclick="changePage(${i})" class="w-10 h-10 rounded-xl text-xs font-bold transition-all flex items-center justify-center ${
-                            isActive ? 'bg-accent-blue text-white shadow-lg shadow-accent-blue/20' : 'bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800'
+                            isActive ? 'bg-accent-blue text-white shadow-lg shadow-accent-blue/25' : 'bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800'
                         }">${i}</button>`;
             }
 
@@ -1239,7 +1354,7 @@
             const currentArticles = blogArticlesDatabase.slice(startIndex, startIndex + blogPerPage);
 
             blogGrid.innerHTML = currentArticles.map(article => `
-                <div class="bg-slate-900 border border-slate-800/80 rounded-2xl overflow-hidden shadow-xl flex flex-col group hover:border-slate-700 transition-all">
+                <div class="bg-slate-900 border border-slate-800/80 rounded-2xl overflow-hidden shadow-xl flex flex-col h-full group hover:border-slate-700 transition-all">
                     <div class="p-6 flex-grow flex flex-col justify-between">
                         <div>
                             <div class="flex items-center justify-between text-xs text-slate-500 mb-3">
@@ -1249,7 +1364,7 @@
                             <h3 class="text-base font-bold text-white mb-2 group-hover:text-accent-blue transition-colors cursor-pointer" onclick="navigateTo('?article=${article.slug}')">${article.title}</h3>
                             <p class="text-xs text-slate-400 leading-relaxed mb-4 line-clamp-3">${article.summary}</p>
                         </div>
-                        <div class="pt-4 border-t border-slate-800/60 flex items-center justify-between">
+                        <div class="pt-4 border-t border-slate-800/60 flex items-center justify-between mt-auto">
                             <span class="text-[11px] text-slate-500">${article.date}</span>
                             <button onclick="navigateTo('?article=${article.slug}')" class="text-xs font-semibold text-accent-blue hover:underline flex items-center gap-1">Read Article <i class="fa-solid fa-arrow-right text-[10px]"></i></button>
                         </div>
@@ -1267,7 +1382,7 @@
                     const isActive = i === currentBlogPage;
                     paginationHTML += `
                         <button onclick="changeBlogPage(${i})" class="w-10 h-10 rounded-xl text-xs font-bold transition-all flex items-center justify-center ${
-                            isActive ? 'bg-accent-blue text-white shadow-lg shadow-accent-blue/20' : 'bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800'
+                            isActive ? 'bg-accent-blue text-white shadow-lg shadow-accent-blue/25' : 'bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800'
                         }">${i}</button>`;
                 }
 
@@ -1314,7 +1429,7 @@
             
             if (relatedGrid) {
                 relatedGrid.innerHTML = relatedArticles.map(rel => `
-                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl flex flex-col justify-between group hover:border-slate-700 transition-all cursor-pointer" onclick="navigateTo('?article=${rel.slug}')">
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl flex flex-col justify-between h-full group hover:border-slate-700 transition-all cursor-pointer" onclick="navigateTo('?article=${rel.slug}')">
                         <div>
                             <div class="flex items-center justify-between text-xs text-slate-500 mb-2">
                                 <span class="text-accent-blue font-semibold uppercase tracking-wider text-[10px]">${rel.category}</span>
@@ -1323,7 +1438,7 @@
                             <h4 class="text-sm font-bold text-white mb-2 group-hover:text-accent-blue transition-colors line-clamp-2">${rel.title}</h4>
                             <p class="text-xs text-slate-400 line-clamp-2 mb-4">${rel.summary}</p>
                         </div>
-                        <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-accent-blue font-semibold">
+                        <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-accent-blue font-semibold mt-auto">
                             <span>Read Guide</span>
                             <i class="fa-solid fa-arrow-right text-[10px]"></i>
                         </div>
@@ -1560,7 +1675,7 @@
                 searchInput.addEventListener("input", (e) => {
                     searchQuery = e.target.value.trim().toLowerCase();
                     currentPage = 1;
-                    if (searchQuery.length > 0) { clearSearchBtn.classList.remove("hidden"); } 
+                    if (searchQuery.length > 0) { clearSearchBtn.classList.add("hidden"); } 
                     else { clearSearchBtn.classList.add("hidden"); }
                     renderCatalog();
                 });
