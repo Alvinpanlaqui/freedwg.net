@@ -71,6 +71,7 @@
         .blog-prose blockquote { border-left: 4px solid #ef4444; padding-left: 1rem; margin: 1.25rem 0; font-style: italic; color: #94a3b8; background: #0f172a; padding: 1rem; border-radius: 0.5rem; }
     </style>
     <meta name="google-adsense-account" content="ca-pub-6293373089653204">
+    <script id="dynamic-jsonld" type="application/ld+json">{}</script>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-accent-blue selection:text-white">
 
@@ -231,7 +232,7 @@
             <i class="fa-solid fa-chevron-right text-[10px] text-slate-600"></i>
             <a href="/" id="subpage-breadcrumb-cat" class="hover:text-accent-blue transition-colors">Category</a>
             <i class="fa-solid fa-chevron-right text-[10px] text-slate-600"></i>
-            <span class="text-slate-200 truncate max-w-xs" id="subpage-breadcrumb-title">CAD Block</span>
+            <span class="text-slate-200 truncate max-w-xs" id="subpage-breadcrumb-title"></span>
         </nav>
 
         <!-- Main Product Section -->
@@ -254,8 +255,8 @@
             <!-- Right: Details & Download Actions -->
             <div class="lg:col-span-5 bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl flex flex-col justify-between">
                 <div>
-                    <h1 id="subpage-title" class="text-xl sm:text-2xl font-extrabold text-white mb-4 leading-snug">AutoCAD DWG Technical Drawing Detail</h1>
-                    <p id="subpage-desc" class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">Verified 2D and 3D AutoCAD DWG technical drawing ready for architectural, structural, and MEP project documentation.</p>
+                    <h1 id="subpage-title" class="text-xl sm:text-2xl font-extrabold text-white mb-4 leading-snug"></h1>
+                    <p id="subpage-desc" class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6"></p>
 
                     <!-- Technical Specs Box -->
                     <div class="bg-slate-950 rounded-2xl p-4 border border-slate-800/80 mb-6 space-y-2.5 text-xs text-slate-300">
@@ -314,7 +315,7 @@
             <i class="fa-solid fa-chevron-right text-[10px] text-slate-600"></i>
             <a href="?page=blog" onclick="navigateTo('?page=blog'); return false;" class="hover:text-accent-blue transition-colors">CAD Blog</a>
             <i class="fa-solid fa-chevron-right text-[10px] text-slate-600"></i>
-            <span class="text-slate-200 truncate max-w-xs" id="article-breadcrumb-title">Article</span>
+            <span class="text-slate-200 truncate max-w-xs" id="article-breadcrumb-title"></span>
         </nav>
 
         <article class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl">
@@ -330,8 +331,8 @@
             </div>
 
             <!-- Title & Summary -->
-            <h1 id="article-title" class="text-2xl sm:text-4xl font-extrabold text-white leading-tight mb-4">AutoCAD & Engineering Drafting Technical Guide</h1>
-            <p id="article-summary" class="text-sm sm:text-base text-slate-300 leading-relaxed pb-6 border-b border-slate-800 font-medium">Practical drafting workflows, layer standardization, and code-compliant CAD documentation guides for architects and engineers.</p>
+            <h1 id="article-title" class="text-2xl sm:text-4xl font-extrabold text-white leading-tight mb-4"></h1>
+            <p id="article-summary" class="text-sm sm:text-base text-slate-300 leading-relaxed pb-6 border-b border-slate-800 font-medium"></p>
 
             <!-- Main Prose Body -->
             <div id="article-body" class="blog-prose pt-6">
@@ -367,7 +368,7 @@
         <nav class="flex items-center gap-2 text-xs text-slate-400 mb-6">
             <a href="/" onclick="navigateTo('/'); return false;" class="hover:text-accent-blue transition-colors">Home</a>
             <i class="fa-solid fa-chevron-right text-[10px] text-slate-600"></i>
-            <span class="text-slate-200" id="info-page-breadcrumb">Information</span>
+            <span class="text-slate-200" id="info-page-breadcrumb"></span>
         </nav>
 
         <article class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl">
@@ -377,7 +378,7 @@
                 </div>
                 <div>
                     <span class="text-[10px] uppercase font-bold tracking-wider text-accent-blue">FREEDWG Official Policy & Documentation</span>
-                    <h1 id="info-page-title" class="text-2xl sm:text-3xl font-extrabold text-white mt-0.5">About FREEDWG</h1>
+                    <h1 id="info-page-title" class="text-2xl sm:text-3xl font-extrabold text-white mt-0.5"></h1>
                 </div>
             </div>
             <div id="info-page-body" class="blog-prose space-y-4"></div>
@@ -589,10 +590,13 @@
     </div><!-- End #home-extra-sections -->
 
     <noscript>
-        <div class="max-w-5xl mx-auto px-4 py-8 text-slate-300 text-sm">
+        <div class="max-w-5xl mx-auto px-4 py-8 text-slate-300 text-sm space-y-4">
             <h2>FREEDWG - Open Architectural & Engineering CAD Repository</h2>
-            <p>Browse over 100 verified 2D and 3D AutoCAD DWG blocks across Architecture, Structural Engineering, Plumbing, Electrical, Mechanical HVAC, and Landscape Design, plus 30 in-depth CAD drafting tutorials.</p>
-            <p>Navigation: <a href="/">Library</a> | <a href="?page=blog">CAD Blog</a> | <a href="?page=about">About Us</a> | <a href="?page=contact">Contact Us</a> | <a href="?page=privacy">Privacy Policy</a> | <a href="?page=terms">Terms & Conditions</a></p>
+            <p>Browse 102 verified 2D and 3D AutoCAD DWG blocks across Architecture, Structural Engineering, Plumbing, Electrical, Mechanical HVAC, Landscape, Furniture, Vehicles, Details, Roofing, and Industrial Design, plus in-depth CAD drafting tutorials.</p>
+            <p><strong>Navigation:</strong> <a href="/">Library</a> | <a href="?page=blog">CAD Blog</a> | <a href="?page=about">About Us</a> | <a href="?page=contact">Contact Us</a> | <a href="?page=privacy">Privacy Policy</a> | <a href="?page=terms">Terms & Conditions</a></p>
+            <p><strong>Categories:</strong> <a href="?category=Architecture">Architecture</a> | <a href="?category=Structural">Structural</a> | <a href="?category=Electrical">Electrical</a> | <a href="?category=Mechanical">Mechanical</a> | <a href="?category=Plumbing">Plumbing</a> | <a href="?category=Landscape">Landscape</a> | <a href="?category=Furniture">Furniture</a> | <a href="?category=Vehicles">Vehicles</a> | <a href="?category=Details">Details</a> | <a href="?category=Roofing">Roofing</a> | <a href="?category=Industrial">Industrial</a></p>
+            <p><strong>Featured CAD Blocks:</strong> <a href="?block=1">Residential Landscape & Swimming Pool Plan</a> | <a href="?block=3">Roof Construction Details</a> | <a href="?block=4">Solar Heating System Schematic</a> | <a href="?block=5">Commercial Coffee Shop Floor Plan</a> | <a href="?block=20">Two-Chamber Septic Tank Structural DWG</a> | <a href="?block=25">One-Way & Two-Way Concrete Slab Rebar Plan</a> | <a href="?block=45">Wall-Mounted FCU HVAC Detail</a> | <a href="?block=82">On-Site Stormwater Detention Tank Section</a></p>
+            <p><strong>Engineering Guides:</strong> <a href="?article=purge-heavy-autocad-dwg">How to Clean and Purge Heavy AutoCAD DWG Files</a> | <a href="?article=commercial-layer-management-standards">Best Practices for Layer Management in Commercial Plans</a> | <a href="?article=creating-custom-dynamic-blocks">Creating Custom Dynamic Blocks</a> | <a href="?article=civil-3d-alignment-surface-modeling">Civil 3D Alignment Surfaces & Grading</a> | <a href="?article=mep-clash-detection-workflows">MEP Clash Detection Workflows</a></p>
         </div>
     </noscript>
 
@@ -611,7 +615,9 @@
                     <a href="?category=Plumbing" onclick="navigateTo('?category=Plumbing'); return false;" class="hover:text-accent-blue">Plumbing</a> •
                     <a href="?category=Mechanical" onclick="navigateTo('?category=Mechanical'); return false;" class="hover:text-accent-blue">Mechanical</a> •
                     <a href="?category=Electrical" onclick="navigateTo('?category=Electrical'); return false;" class="hover:text-accent-blue">Electrical</a> •
-                    <a href="?category=Landscape" onclick="navigateTo('?category=Landscape'); return false;" class="hover:text-accent-blue">Landscape</a>
+                    <a href="?category=Landscape" onclick="navigateTo('?category=Landscape'); return false;" class="hover:text-accent-blue">Landscape</a> •
+                    <a href="?category=Details" onclick="navigateTo('?category=Details'); return false;" class="hover:text-accent-blue">Details</a> •
+                    <a href="?category=Roofing" onclick="navigateTo('?category=Roofing'); return false;" class="hover:text-accent-blue">Roofing</a>
                 </div>
             </div>
             <div>
@@ -750,26 +756,6 @@
         </div>
     </div>
 
-    <!-- Informational Pages Modal -->
-    <div id="page-modal" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-sm hidden flex items-center justify-center p-4">
-        <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-3xl w-full p-6 sm:p-8 relative shadow-2xl transform scale-95 opacity-0 transition-all duration-300 max-h-[85vh] flex flex-col" id="page-modal-container">
-            <button onclick="closePageModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center transition-colors">
-                <i class="fa-solid fa-xmark text-base"></i>
-            </button>
-            <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-800">
-                <div id="page-modal-icon" class="w-10 h-10 rounded-xl bg-accent-blue/10 border border-accent-blue/30 flex items-center justify-center text-accent-blue text-lg">
-                    <i class="fa-solid fa-circle-info"></i>
-                </div>
-                <h2 id="page-modal-title" class="text-xl font-bold text-white">Page Title</h2>
-            </div>
-            <div id="page-modal-body" class="overflow-y-auto pr-2 space-y-4 text-sm text-slate-300 leading-relaxed"></div>
-            <div class="mt-6 pt-4 border-t border-slate-800 flex justify-between items-center">
-                <span class="text-xs text-slate-500">FREEDWG Official Documentation</span>
-                <button onclick="closePageModal()" class="px-6 py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-medium rounded-xl transition-colors text-sm">Close Window</button>
-            </div>
-        </div>
-    </div>
-
     <!-- Toast Notification -->
     <div id="toast" class="fixed bottom-6 right-6 z-50 bg-slate-900 border border-slate-700 text-slate-100 px-4 py-3 rounded-2xl shadow-2xl transform translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-3">
         <div class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
@@ -889,7 +875,7 @@
             { 
                 id: 11, 
                 title: "Ornamental Metal Driveway Gate Design and Framing Detail CAD Drawing | DWG Block", 
-                category: "Detail", 
+                category: "Details", 
                 fileSize: "1.28 MB", 
                 downloads: 890, 
                 image: "https://6ad07ae6a148e83390719c25.imgix.net/sandbox/11-Gate%20Detail%20Design%20-freedwg.net.png", 
@@ -897,10 +883,10 @@
                 tags: ["Iron Works", "Gate Detail", "Blow Up Detail", "Elevation"], description: "Detail high-end security and ornamental driveway gates with this comprehensive engineering CAD drawing. Featuring decorative scrollwork patterns, structural steel frame members, heavy-duty hinge mounting details, locking mechanisms, and masonry column anchor plates, this DWG block provides fabricators and architects with all required construction parameters. The drawing includes elevation views and blow-up connection details, ensuring smooth fabrication and installation." 
             },
             { 
-                id: 12, title: "Perimeter Concrete Wall and Metal Fence Design Detail CAD Drawing | DWG Block", category: "Detail", fileSize: "0.50 MB", downloads: 620, image: "https://6ad07ae6a148e83390719c25.imgix.net/sandbox/12-Fence%20Detail%20Design%20-freedwg.net.png", downloadLink: "https://drive.google.com/file/d/1WSRB1dybY2dIwq8hI3REu3KRdHcKIjCy/view?usp=sharing", tags: ["Fence Detail", "Elevation", "Blow Up Detail", "Iron Works"], description: "Specify secure and aesthetically pleasing property boundaries using this perimeter concrete wall and metal fence architectural detail drawing. This DWG file illustrates reinforced concrete footing designs, masonry wall blocks, stucco finish layers, steel picket spacing, and post-cap details. Essential for site planners and civil engineers, the drawing ensures structural stability and aesthetic harmony for residential and commercial enclosures." 
+                id: 12, title: "Perimeter Concrete Wall and Metal Fence Design Detail CAD Drawing | DWG Block", category: "Details", fileSize: "0.50 MB", downloads: 620, image: "https://6ad07ae6a148e83390719c25.imgix.net/sandbox/12-Fence%20Detail%20Design%20-freedwg.net.png", downloadLink: "https://drive.google.com/file/d/1WSRB1dybY2dIwq8hI3REu3KRdHcKIjCy/view?usp=sharing", tags: ["Fence Detail", "Elevation", "Blow Up Detail", "Iron Works"], description: "Specify secure and aesthetically pleasing property boundaries using this perimeter concrete wall and metal fence architectural detail drawing. This DWG file illustrates reinforced concrete footing designs, masonry wall blocks, stucco finish layers, steel picket spacing, and post-cap details. Essential for site planners and civil engineers, the drawing ensures structural stability and aesthetic harmony for residential and commercial enclosures." 
             },
             { 
-                id: 13, title: "Staircase and Balcony Safety Railing Construction Detail CAD Drawing | DWG Block", category: "Detail", fileSize: "2.55 MB", downloads: 510, image: "https://6ad07ae6a148e83390719c25.imgix.net/sandbox/13-Railing%20Detail%20Design%20-freedwg.net.png", downloadLink: "https://drive.google.com/file/d/1KlCrht3VWa2jm_mLsmfgdwufmYVa1p0Y/view?usp=sharing", tags: ["Architecture", "Ironworks", "Detail", "Railing"], description: "Ensure building code compliance for fall protection with this staircase and balcony safety railing construction detail CAD drawing. The file features precise fabrication details for metal balusters, handrail profiles, baseplate floor anchorages, and welded joints. Designed for architects and structural detailers, this drawing guarantees rigorous safety standards while maintaining sleek architectural aesthetics." 
+                id: 13, title: "Staircase and Balcony Safety Railing Construction Detail CAD Drawing | DWG Block", category: "Details", fileSize: "2.55 MB", downloads: 510, image: "https://6ad07ae6a148e83390719c25.imgix.net/sandbox/13-Railing%20Detail%20Design%20-freedwg.net.png", downloadLink: "https://drive.google.com/file/d/1KlCrht3VWa2jm_mLsmfgdwufmYVa1p0Y/view?usp=sharing", tags: ["Architecture", "Ironworks", "Detail", "Railing"], description: "Ensure building code compliance for fall protection with this staircase and balcony safety railing construction detail CAD drawing. The file features precise fabrication details for metal balusters, handrail profiles, baseplate floor anchorages, and welded joints. Designed for architects and structural detailers, this drawing guarantees rigorous safety standards while maintaining sleek architectural aesthetics." 
             },
             { 
                 id: 14, title: "Executive Office Table and Workstation Layout CAD Drawing | DWG Block", category: "Furniture", fileSize: "0.50 MB", downloads: 1150, image: "https://6ad07ae6a148e83390719c25.imgix.net/sandbox/14-Office%20Table%20-freedwg.net.png", downloadLink: "https://drive.google.com/file/d/1mMx9fBGYfp3iDr1ZilQpIJI3e7-aaVV1/view?usp=sharing", tags: ["Office", "Table", "Plan", "Seating"], description: "Populate corporate floor plans efficiently with this executive office table and workstation layout CAD drawing. Featuring ergonomic desk footprints, visitor seating arrangements, integrated storage credenzas, and cable management grommet placements, this DWG block provides interior designers with a versatile furniture module optimized for professional administrative environments." 
@@ -915,7 +901,7 @@
                 id: 17, title: "Three Storey Commercial Building with Basement Parking CAD Drawing | DWG Block", category: "Architecture", fileSize: "3.79 MB", downloads: 2890, image: "https://6ad07ae6a148e83390719c25.imgix.net/sandbox/17-Three%20Storey%20Commercial%20Bldg%20%20-freedwg.net.png", downloadLink: "https://drive.google.com/file/d/101UlO9ohUhKCtep4OdftfsWpe8FNguo_/view?usp=sharing", tags: ["Commercial", "Library", "Parking", "School"], description: "Develop complex commercial real estate projects using this three-story commercial building floor plan with basement parking infrastructure. The DWG file includes retail storefront layouts, upper office floor plates, vertical core circulation including elevators and fire stairs, and subterranean vehicular parking bays." 
             },
             { 
-                id: 18, title: "Urban Roadway LED Street Light Pole and Foundation Detail CAD Drawing | DWG Block", category: "Detail", fileSize: "2.16 MB", downloads: 2890, image: "https://6ad07ae6a148e83390719c25.imgix.net/sandbox/18-Street%20light%20%20-freedwg.net.png", downloadLink: "https://drive.google.com/file/d/104OuREyfXh6y0OhUYM-grSSGwUSp2tHx/view?usp=sharing", tags: ["Lighting", "Electrical", "Street Lamp", "Detail"], description: "Design municipal streetscapes with this urban roadway LED street light pole and foundation detail CAD drawing. Featuring pole height specifications, luminaire bracket arms, anchor bolt cages, and concrete foundation block dimensions, this drawing ensures structural stability and electrical safety for public infrastructure projects." 
+                id: 18, title: "Urban Roadway LED Street Light Pole and Foundation Detail CAD Drawing | DWG Block", category: "Details", fileSize: "2.16 MB", downloads: 2890, image: "https://6ad07ae6a148e83390719c25.imgix.net/sandbox/18-Street%20light%20%20-freedwg.net.png", downloadLink: "https://drive.google.com/file/d/104OuREyfXh6y0OhUYM-grSSGwUSp2tHx/view?usp=sharing", tags: ["Lighting", "Electrical", "Street Lamp", "Detail"], description: "Design municipal streetscapes with this urban roadway LED street light pole and foundation detail CAD drawing. Featuring pole height specifications, luminaire bracket arms, anchor bolt cages, and concrete foundation block dimensions, this drawing ensures structural stability and electrical safety for public infrastructure projects." 
             },
             { 
                 id: 19, title: "Top-View and Elevation Automobile and Car CAD Blocks Collection | DWG Repository", category: "Vehicles", fileSize: "3.79 MB", downloads: 2890, image: "https://6ad07ae6a148e83390719c25.imgix.net/sandbox/19-Cars%20%20-freedwg.net.png", downloadLink: "https://drive.google.com/file/d/1J1klv-wdTub5_9H855DYPNMLvg0r4Xka/view?usp=sharing", tags: ["Vehicles", "Cars", "Transport", "Parking"], description: "Populate site plans and parking layouts instantly with this extensive collection of top-view and elevation automobile CAD blocks. Featuring sedans, SUVs, and commercial vehicles drawn to true scale, this DWG repository enhances the realism and scale representation of architectural site plans and landscape renderings." 
@@ -1011,7 +997,7 @@
                 id: 49, title: "Refrigerant Pipe Insulation and Vapor Barrier Installation Detail CAD Drawing | HVAC DWG Block", category: "Mechanical", fileSize: "0.26 MB", downloads: 1450, image: "https://6ad07ae6a148e83390719c25.imgix.net/sandbox/49-REFRIGERANT%20PIPE%20INSULATION%20DETAIL%20-FREEDWG.NET.png", downloadLink: "https://drive.google.com/file/d/1-dGwzuCEoQiMZfJTR0mp6UUk9ZiAKFFm/view?usp=sharing", tags: ["Refrigerant Piping", "Pipe Insulation", "Hvac Blocks", "Mechanical Detail"], description: "Detailed AutoCAD drawing showing thermal insulation layers, vapor barriers, adhesive tapes, and protective aluminum cladding for HVAC refrigerant lines to prevent energy loss and condensation." 
             },
             { 
-                id: 50, title: "Cast-in-Place Concrete Sink and Kitchen Countertop Construction Detail | DWG Block", category: "Detail", fileSize: "0.31 MB", downloads: 1820, image: "https://6ad07ae6a148e83390719c25.imgix.net/sandbox/50-CONCRETE%20SINK%20DETAIL%20-FREEDWG.NET.png", downloadLink: "https://drive.google.com/file/d/1uW-bRkIw8h8MRurzh9Ttq6eRSd0jmucg/view?usp=sharing", tags: ["Concrete Sink", "Countertop Detail", "Plumbing", "Kitchen Design"], description: "Comprehensive architectural and structural section detail for a poured-in-place concrete sink and kitchen counter support framing, including waterproofing membranes and plumbing waste connections." 
+                id: 50, title: "Cast-in-Place Concrete Sink and Kitchen Countertop Construction Detail | DWG Block", category: "Details", fileSize: "0.31 MB", downloads: 1820, image: "https://6ad07ae6a148e83390719c25.imgix.net/sandbox/50-CONCRETE%20SINK%20DETAIL%20-FREEDWG.NET.png", downloadLink: "https://drive.google.com/file/d/1uW-bRkIw8h8MRurzh9Ttq6eRSd0jmucg/view?usp=sharing", tags: ["Concrete Sink", "Countertop Detail", "Plumbing", "Kitchen Design"], description: "Comprehensive architectural and structural section detail for a poured-in-place concrete sink and kitchen counter support framing, including waterproofing membranes and plumbing waste connections." 
             },
             { 
                 id: 51, title: "Commercial & Residential Mop Basin Plumbing and Floor Drain Detail | DWG Block", category: "Plumbing", fileSize: "0.28 MB", downloads: 1190, image: "https://6ad07ae6a148e83390719c25.imgix.net/sandbox/51--MOP%20BASIN%20DETAIL%20-FREEDWG.NET.png", downloadLink: "https://drive.google.com/file/d/1Rootey0DTK39v4O7pcLslrwm_n-55mtX/view?usp=sharing", tags: ["Mop Basin", "Service Sink", "Floor Drain", "Plumbing Detail"], description: "Standard service sink / mop basin installation section detail showing wall-mounted faucet connections, tile curb layout, waterproof flashing, and P-trap drain alignment for janitorial spaces." 
@@ -2089,7 +2075,7 @@
             if (menu) menu.classList.toggle("hidden");
         };
 
-        function updateSeoMeta({ title, description, url, type = "website" }) {
+        function updateSeoMeta({ title, description, url, type = "website", schema = null }) {
             document.title = title;
             const titleEl = document.getElementById("meta-title");
             if (titleEl) titleEl.textContent = title;
@@ -2103,13 +2089,19 @@
             if (ogTitleEl) ogTitleEl.setAttribute("content", title);
             const ogDescEl = document.getElementById("meta-og-desc");
             if (ogDescEl) ogDescEl.setAttribute("content", description);
-        }
 
-        const pageModal = document.getElementById("page-modal");
-        const pageModalContainer = document.getElementById("page-modal-container");
-        const pageModalTitle = document.getElementById("page-modal-title");
-        const pageModalBody = document.getElementById("page-modal-body");
-        const pageModalIcon = document.getElementById("page-modal-icon");
+            const jsonLdEl = document.getElementById("dynamic-jsonld");
+            if (jsonLdEl) {
+                const payload = schema || {
+                    "@context": "https://schema.org",
+                    "@type": "WebSite",
+                    "name": "FREEDWG",
+                    "url": url,
+                    "description": description
+                };
+                jsonLdEl.textContent = JSON.stringify(payload);
+            }
+        }
 
         function renderCategories() {
             if (!filtersEl) return;
@@ -2142,7 +2134,24 @@
             const pageDesc = (item.description || `Download free ${item.category} AutoCAD DWG block: ${item.title}.`).slice(0, 160);
             const pageUrl = `https://freedwg.net/?block=${item.id}`;
 
-            updateSeoMeta({ title: pageTitle, description: pageDesc, url: pageUrl, type: "article" });
+            updateSeoMeta({
+                title: pageTitle,
+                description: pageDesc,
+                url: pageUrl,
+                type: "article",
+                schema: {
+                    "@context": "https://schema.org",
+                    "@type": "TechArticle",
+                    "headline": item.title,
+                    "description": pageDesc,
+                    "image": item.image,
+                    "url": pageUrl,
+                    "author": { "@type": "Person", "name": "Alvin Panlaqui" },
+                    "publisher": { "@type": "Organization", "name": "FREEDWG", "url": "https://freedwg.net/" },
+                    "about": item.category,
+                    "keywords": item.tags.join(", ")
+                }
+            });
 
             const guideHeading = document.getElementById("subpage-guide-heading");
             const guideContent = document.getElementById("subpage-guide-content");
@@ -2420,11 +2429,22 @@
             if (homeExtraSections) homeExtraSections.classList.add("hidden");
             if (articleView) articleView.classList.remove("hidden");
 
+            const articleUrl = `https://freedwg.net/?article=${encodeURIComponent(article.slug)}`;
             updateSeoMeta({
                 title: `${article.title} | FREEDWG CAD Expert Blog`,
                 description: article.summary,
-                url: `https://freedwg.net/?article=${encodeURIComponent(article.slug)}`,
-                type: "article"
+                url: articleUrl,
+                type: "article",
+                schema: {
+                    "@context": "https://schema.org",
+                    "@type": "BlogPosting",
+                    "headline": article.title,
+                    "description": article.summary,
+                    "url": articleUrl,
+                    "author": { "@type": "Person", "name": "Alvin Panlaqui" },
+                    "publisher": { "@type": "Organization", "name": "FREEDWG", "url": "https://freedwg.net/" },
+                    "articleSection": article.category
+                }
             });
 
             document.getElementById("article-breadcrumb-title").textContent = article.title;
@@ -2747,28 +2767,7 @@
             setTimeout(() => { modal.classList.add("hidden"); }, 200);
         };
 
-        window.openPageModal = function(pageType, updateUrl = true) {
-            if (updateUrl) {
-                navigateTo(`?page=${pageType}`);
-                return;
-            }
-            const data = getPolicyPageData(pageType);
-            pageModalTitle.textContent = data.title;
-            pageModalBody.innerHTML = data.html;
-            pageModalIcon.className = `w-10 h-10 rounded-xl bg-accent-blue/10 border border-accent-blue/30 flex items-center justify-center text-accent-blue text-lg ${data.icon}`;
 
-            pageModal.classList.remove("hidden");
-            setTimeout(() => {
-                pageModalContainer.classList.remove("scale-95", "opacity-0");
-                pageModalContainer.classList.add("scale-100", "opacity-100");
-            }, 10);
-        };
-
-        window.closePageModal = function() {
-            pageModalContainer.classList.remove("scale-100", "opacity-100");
-            pageModalContainer.classList.add("scale-95", "opacity-0");
-            setTimeout(() => { pageModal.classList.add("hidden"); }, 200);
-        };
 
         function showToast(title, desc) {
             const toast = document.getElementById("toast");
@@ -2787,7 +2786,7 @@
         // ================= ENHANCED INTERACTIVE CAD PRACTICE ENGINE =================
         let currentCadTool = 'line';
         let cadEntities = [];
-        let drawingState = { active: false, startX: 0, startY: 0, currentX: 0, currentY: 0 };
+        let drawingState = { active: false, startX: 0, startY: 0, currentX: 0, currentY: 0, pts: [] };
         let selectedEntityIndex = -1;
 
         const questionsData = [
@@ -2835,6 +2834,11 @@
         window.switchCadMode = switchCadMode;
 
         window.setCadTool = function(tool) {
+            if (drawingState.active && currentCadTool === 'polyline' && drawingState.pts.length > 1) {
+                cadEntities.push({ type: 'polyline', pts: [...drawingState.pts] });
+            }
+            drawingState.active = false;
+            drawingState.pts = [];
             currentCadTool = tool;
             selectedEntityIndex = -1;
             ['line', 'polyline', 'circle', 'rectangle', 'move', 'offset', 'trim'].forEach(t => {
@@ -2930,6 +2934,14 @@
                     ctx.beginPath(); ctx.arc(drawingState.startX, drawingState.startY, r, 0, Math.PI * 2); ctx.stroke();
                 } else if (currentCadTool === 'rectangle') {
                     ctx.beginPath(); ctx.rect(drawingState.startX, drawingState.startY, drawingState.currentX - drawingState.startX, drawingState.currentY - drawingState.startY); ctx.stroke();
+                } else if (currentCadTool === 'polyline' && drawingState.pts.length > 0) {
+                    ctx.beginPath();
+                    ctx.moveTo(drawingState.pts[0].x, drawingState.pts[0].y);
+                    for (let i = 1; i < drawingState.pts.length; i++) {
+                        ctx.lineTo(drawingState.pts[i].x, drawingState.pts[i].y);
+                    }
+                    ctx.lineTo(drawingState.currentX, drawingState.currentY);
+                    ctx.stroke();
                 }
             }
 
@@ -2980,7 +2992,21 @@
                     return;
                 }
 
-                // Drawing tools
+                // Polyline multi-point tool (double-click or Enter/Esc to finish)
+                if (currentCadTool === 'polyline') {
+                    if (!drawingState.active) {
+                        drawingState.active = true;
+                        drawingState.pts = [{ x, y }];
+                        drawingState.currentX = x;
+                        drawingState.currentY = y;
+                    } else {
+                        drawingState.pts.push({ x, y });
+                    }
+                    redrawCadCanvas();
+                    return;
+                }
+
+                // Standard 2-point drawing tools
                 if (!drawingState.active) {
                     drawingState.active = true;
                     drawingState.startX = x;
@@ -3014,8 +3040,28 @@
                 }
             });
 
+            canvas.addEventListener('dblclick', () => {
+                if (drawingState.active && currentCadTool === 'polyline' && drawingState.pts.length > 1) {
+                    cadEntities.push({ type: 'polyline', pts: [...drawingState.pts] });
+                    drawingState.active = false;
+                    drawingState.pts = [];
+                    redrawCadCanvas();
+                }
+            });
+
+            window.addEventListener('keydown', (e) => {
+                if ((e.key === 'Enter' || e.key === 'Escape') && drawingState.active && currentCadTool === 'polyline') {
+                    if (drawingState.pts.length > 1) {
+                        cadEntities.push({ type: 'polyline', pts: [...drawingState.pts] });
+                    }
+                    drawingState.active = false;
+                    drawingState.pts = [];
+                    redrawCadCanvas();
+                }
+            });
+
             canvas.addEventListener('mouseleave', () => {
-                if (drawingState.active) {
+                if (drawingState.active && currentCadTool !== 'polyline') {
                     drawingState.active = false;
                     redrawCadCanvas();
                 }
@@ -3101,6 +3147,36 @@
                     currentPage = 1;
                     clearSearchBtn.classList.add("hidden");
                     renderCatalog();
+                });
+            }
+
+            const reqForm = document.getElementById("request-form");
+            if (reqForm) {
+                reqForm.addEventListener("submit", async (e) => {
+                    e.preventDefault();
+                    const submitBtn = reqForm.querySelector('button[type="submit"]');
+                    const origHTML = submitBtn.innerHTML;
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting...';
+                    try {
+                        const res = await fetch(reqForm.action, {
+                            method: "POST",
+                            body: new FormData(reqForm),
+                            headers: { "Accept": "application/json" }
+                        });
+                        if (res.ok) {
+                            reqForm.reset();
+                            closeRequestModal();
+                            showToast("Request Submitted", "Thank you! Our CAD team will review your drawing request.");
+                        } else {
+                            showToast("Submission Failed", "Please try again or email support@freedwg.net.");
+                        }
+                    } catch (err) {
+                        showToast("Network Error", "Could not submit form. Please email support@freedwg.net.");
+                    } finally {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = origHTML;
+                    }
                 });
             }
         }
