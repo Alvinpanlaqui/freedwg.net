@@ -1,1 +1,198 @@
-https://github.com/Alvinpanlaqui/freedwg.net/blob/9ea642f9b735b20cc53934ff501ec8a149073706/index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CAD Block Categories | FreeDWG.net</title>
+  <meta name="description" content="Browse free AutoCAD DWG blocks organized by category on FreeDWG.net." />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
+
+  <!-- Navbar -->
+  <header class="border-b border-slate-800 bg-slate-900/90 sticky top-0 z-30 backdrop-blur">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-4">
+      <a href="../index.html" class="text-xl font-bold tracking-tight text-white">
+        Free<span class="text-amber-400">DWG</span>.net
+      </a>
+      <nav class="flex items-center gap-6 text-sm text-slate-300">
+        <a href="../index.html" class="hover:text-amber-400 transition">Home</a>
+        <a href="./index.html" class="text-amber-400 font-semibold">Categories</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-7xl w-full mx-auto px-4 py-8 flex-1">
+    <!-- Page Header & Search -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+      <div>
+        <h1 id="pageTitle" class="text-3xl font-bold text-white">All CAD Categories</h1>
+        <p id="pageSubtitle" class="text-slate-400 mt-1">Select a category to filter DWG blocks</p>
+      </div>
+      <div class="w-full md:w-80">
+        <input
+          id="searchInput"
+          type="text"
+          placeholder="Search blocks in this view..."
+          class="w-full rounded-lg bg-slate-900 border border-slate-700 px-4 py-2.5 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-amber-400"
+        />
+      </div>
+    </div>
+
+    <!-- Dynamic Category Pills / Cards -->
+    <section aria-label="Categories" class="mb-10">
+      <div id="categoryGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+        <!-- Populated automatically from blocks.js -->
+      </div>
+    </section>
+
+    <!-- Filtered CAD Blocks Grid -->
+    <section>
+      <div class="flex items-center justify-between mb-4">
+        <h2 id="activeCategoryHeading" class="text-lg font-semibold text-slate-200">All Blocks</h2>
+        <span id="resultCount" class="text-xs text-slate-400">0 files</span>
+      </div>
+
+      <div id="blocksGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+        <!-- Populated automatically from blocks.js -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-800 py-6 text-center text-xs text-slate-500">
+    &copy; 2026 FreeDWG.net — Free AutoCAD DWG Library
+  </footer>
+
+  <!-- Load shared block data -->
+  <script src="../blocks.js"></script>
+  <script>
+    const blocks = typeof CAD_BLOCKS !== "undefined" ? CAD_BLOCKS : [];
+    const params = new URLSearchParams(window.location.search);
+    let selectedCategory = params.get("cat") || "All";
+    let searchQuery = "";
+
+    const categoryGrid = document.getElementById("categoryGrid");
+    const blocksGrid = document.getElementById("blocksGrid");
+    const searchInput = document.getElementById("searchInput");
+    const activeCategoryHeading = document.getElementById("activeCategoryHeading");
+    const resultCount = document.getElementById("resultCount");
+    const pageTitle = document.getElementById("pageTitle");
+
+    function getCategoryCounts() {
+      const counts = { All: blocks.length };
+      blocks.forEach((b) => {
+        const cat = (b.category || "Uncategorized").trim();
+        counts[cat] = (counts[cat] || 0) + 1;
+      });
+      return counts;
+    }
+
+    function renderCategories() {
+      const counts = getCategoryCounts();
+      const categories = Object.keys(counts);
+
+      categoryGrid.innerHTML = categories
+        .map((cat) => {
+          const isActive = cat.toLowerCase() === selectedCategory.toLowerCase();
+          return `
+            <button
+              onclick="selectCategory('${cat.replace(/'/g, "\\'")}')"
+              class="text-left p-3.5 rounded-xl border transition ${
+                isActive
+                  ? "bg-amber-400/10 border-amber-400 text-amber-300"
+                  : "bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-600"
+              }"
+            >
+              <div class="font-semibold text-sm truncate">${cat}</div>
+              <div class="text-xs text-slate-400 mt-1">${counts[cat]} DWG${counts[cat] === 1 ? "" : "s"}</div>
+            </button>
+          `;
+        })
+        .join("");
+    }
+
+    function renderBlocks() {
+      const filtered = blocks.filter((b) => {
+        const matchesCat =
+          selectedCategory === "All" ||
+          (b.category || "").toLowerCase() === selectedCategory.toLowerCase();
+        const matchesSearch =
+          !searchQuery ||
+          (b.title || "").toLowerCase().includes(searchQuery) ||
+          (b.category || "").toLowerCase().includes(searchQuery);
+        return matchesCat && matchesSearch;
+      });
+
+      pageTitle.textContent = selectedCategory === "All" ? "All CAD Categories" : selectedCategory;
+      activeCategoryHeading.textContent =
+        selectedCategory === "All" ? "All CAD Blocks" : `${selectedCategory} Blocks`;
+      resultCount.textContent = `${filtered.length} file${filtered.length === 1 ? "" : "s"}`;
+
+      if (filtered.length === 0) {
+        blocksGrid.innerHTML = `
+          <div class="col-span-full text-center py-12 text-slate-400 bg-slate-900/50 rounded-xl border border-slate-800">
+            No CAD blocks found matching your filter.
+          </div>
+        `;
+        return;
+      }
+
+      blocksGrid.innerHTML = filtered
+        .map(
+          (b) => `
+          <article class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden flex flex-col hover:border-slate-600 transition">
+            <div class="aspect-video bg-slate-950 flex items-center justify-center overflow-hidden p-3">
+              <img
+                src="${b.thumbnail}"
+                alt="${b.title}"
+                class="max-h-full max-w-full object-contain"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <span class="inline-block text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-amber-400 mb-2">
+                  ${b.category}
+                </span>
+                <h3 class="font-semibold text-sm text-white line-clamp-2">${b.title}</h3>
+              </div>
+              <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between">
+                <span class="text-xs text-slate-400">${b.fileSize || "DWG"}</span>
+                <a
+                  href="${b.dwgUrl}"
+                  download
+                  class="text-xs font-semibold bg-amber-400 text-slate-950 px-3 py-1.5 rounded-lg hover:bg-amber-300 transition"
+                >
+                  Download DWG
+                </a>
+              </div>
+            </div>
+          </article>
+        `
+        )
+        .join("");
+    }
+
+    function selectCategory(cat) {
+      selectedCategory = cat;
+      const url = new URL(window.location);
+      if (cat === "All") {
+        url.searchParams.delete("cat");
+      } else {
+        url.searchParams.set("cat", cat);
+      }
+      window.history.replaceState({}, "", url);
+      renderCategories();
+      renderBlocks();
+    }
+
+    searchInput.addEventListener("input", (e) => {
+      searchQuery = e.target.value.trim().toLowerCase();
+      renderBlocks();
+    });
+
+    renderCategories();
+    renderBlocks();
+  </script>
+</body>
+</html>
